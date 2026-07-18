@@ -24,7 +24,7 @@ export function TechStack() {
         {ALL_TECH.map((tech) => (
           <span
             key={tech}
-            className="flex shrink-0 items-center gap-2.5 rounded-2xl border border-subtle bg-surface/70 px-5 py-3 text-sm font-medium text-muted transition-colors duration-300 hover:border-glow hover:text-foreground"
+            className="glass-chip flex shrink-0 items-center gap-2.5 rounded-full px-5 py-3 text-sm font-medium text-muted transition-colors duration-300 hover:text-foreground"
           >
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
             {tech}
@@ -56,7 +56,7 @@ export function TechStack() {
               {items.map((item) => (
                 <li
                   key={item}
-                  className="rounded-lg bg-deep/60 px-2.5 py-1 text-xs text-muted"
+                  className="glass-chip rounded-full px-2.5 py-1 text-xs text-muted"
                 >
                   {item}
                 </li>

@@ -12,13 +12,11 @@ export function Hero() {
 
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-24 pb-16 md:pt-28">
-      {/* Layered background: grid, radial glow, blobs */}
+      {/* Hero-only accents on top of the global background */}
       <div aria-hidden className="absolute inset-0">
-        <div className="absolute inset-0 bg-grid-pattern bg-[size:56px_56px] mask-fade-bottom" />
         <div className="absolute inset-0 bg-radial-fade" />
         <div className="absolute -left-32 top-1/4 h-96 w-96 animate-blob rounded-full bg-primary/15 blur-[120px]" />
         <div className="absolute -right-24 bottom-1/4 h-80 w-80 animate-blob-delayed rounded-full bg-accent/10 blur-[100px]" />
-        <div className="absolute inset-0 bg-noise" />
       </div>
 
       <div className="container relative">
@@ -38,7 +36,7 @@ export function Hero() {
                 </span>
                 {SITE.availability}
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-subtle bg-surface/60 px-4 py-1.5 text-xs font-medium text-muted">
+              <span className="glass-chip inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-medium text-muted">
                 <Sparkles className="h-3 w-3 text-accent" aria-hidden />
                 {SITE.yearsExperience}+ years of experience
               </span>

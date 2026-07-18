@@ -9,6 +9,10 @@ import { cn } from "@/lib/cn";
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
 
+/**
+ * Floating Liquid Glass navbar — a detached frosted pill that hides on
+ * scroll down and reappears on scroll up.
+ */
 export function Navbar() {
   const { direction, scrolled } = useScrollDirection();
   const active = useActiveSection(SECTION_IDS);
@@ -18,134 +22,136 @@ export function Navbar() {
 
   return (
     <motion.header
-      animate={{ y: hidden ? "-100%" : "0%" }}
+      animate={{ y: hidden ? "-120%" : "0%" }}
       transition={{ duration: 0.35, ease: EASE }}
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        scrolled || menuOpen
-          ? "border-b border-subtle bg-ink/80 backdrop-blur-xl"
-          : "bg-transparent"
-      )}
+      className="fixed inset-x-0 top-0 z-50 pt-3 md:pt-4"
     >
-      <nav
-        className="container flex h-16 items-center justify-between md:h-[72px]"
-        aria-label="Primary"
-      >
-        <a
-          href="#top"
-          className="flex items-center gap-2.5 text-[15px] font-semibold tracking-tight"
+      <div className="container">
+        <nav
+          aria-label="Primary"
+          className={cn(
+            "glass flex h-14 items-center justify-between rounded-full pl-5 pr-2.5 transition-shadow duration-300 md:h-16 md:pl-6 md:pr-3",
+            scrolled && "shadow-glow-sm"
+          )}
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary/15 text-accent ring-1 ring-primary/30">
-            <Terminal className="h-4 w-4" aria-hidden />
-          </span>
-          {SITE.name}
-          <span className="hidden text-muted sm:inline">/ dev</span>
-        </a>
-
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-1 md:flex">
-          {NAV_ITEMS.map((item) => {
-            const isActive = active === item.id;
-            return (
-              <li key={item.id} className="relative">
-                <a
-                  href={`#${item.id}`}
-                  className={cn(
-                    "relative block rounded-xl px-4 py-2 text-sm transition-colors duration-200",
-                    isActive ? "text-foreground" : "text-muted hover:text-foreground"
-                  )}
-                >
-                  {item.label}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      transition={{ duration: 0.35, ease: EASE }}
-                      className="absolute inset-x-4 -bottom-px h-px bg-gradient-to-r from-primary to-accent"
-                    />
-                  )}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="hidden md:block">
           <a
-            href="#contact"
-            className="rounded-xl border border-subtle bg-surface/70 px-4 py-2 text-sm font-medium transition-all duration-300 hover:border-glow hover:shadow-glow-sm"
+            href="#top"
+            className="flex items-center gap-2.5 text-[15px] font-semibold tracking-tight"
           >
-            Let&apos;s talk
+            <span className="glass-chip flex h-8 w-8 items-center justify-center rounded-full text-accent">
+              <Terminal className="h-4 w-4" aria-hidden />
+            </span>
+            {SITE.name}
+            <span className="hidden text-muted sm:inline">/ dev</span>
           </a>
-        </div>
 
-        {/* Hamburger */}
-        <button
-          type="button"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-xl border border-subtle bg-surface/70 md:hidden"
-        >
-          <motion.span
-            animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-            className="block h-px w-5 bg-foreground"
-          />
-          <motion.span
-            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block h-px w-5 bg-foreground"
-          />
-          <motion.span
-            animate={menuOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
-            className="block h-px w-5 bg-foreground"
-          />
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: EASE }}
-            className="overflow-hidden border-b border-subtle bg-ink/95 backdrop-blur-xl md:hidden"
-          >
-            <ul className="container flex flex-col gap-1 py-4">
-              {NAV_ITEMS.map((item, i) => (
-                <motion.li
-                  key={item.id}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i, duration: 0.3 }}
-                >
+          {/* Desktop links */}
+          <ul className="hidden items-center gap-1 md:flex">
+            {NAV_ITEMS.map((item) => {
+              const isActive = active === item.id;
+              return (
+                <li key={item.id} className="relative">
                   <a
                     href={`#${item.id}`}
-                    onClick={() => setMenuOpen(false)}
                     className={cn(
-                      "block rounded-xl px-4 py-3 text-base",
-                      active === item.id
-                        ? "bg-surface text-foreground"
-                        : "text-muted"
+                      "relative z-10 block rounded-full px-4 py-2 text-sm transition-colors duration-200",
+                      isActive
+                        ? "text-foreground"
+                        : "text-muted hover:text-foreground"
                     )}
                   >
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-pill"
+                        transition={{ duration: 0.4, ease: EASE }}
+                        className="glass-chip absolute inset-0 -z-10 rounded-full"
+                      />
+                    )}
                     {item.label}
                   </a>
-                </motion.li>
-              ))}
-              <li className="mt-2 px-4">
-                <a
-                  href="#contact"
-                  onClick={() => setMenuOpen(false)}
-                  className="block rounded-xl bg-primary px-4 py-3 text-center font-medium"
-                >
-                  Let&apos;s talk
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="hidden md:block">
+            <a
+              href="#contact"
+              className="glass-primary rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 hover:brightness-110"
+            >
+              Let&apos;s talk
+            </a>
+          </div>
+
+          {/* Hamburger */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="glass-chip flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full md:hidden"
+          >
+            <motion.span
+              animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+              className="block h-px w-5 bg-foreground"
+            />
+            <motion.span
+              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="block h-px w-5 bg-foreground"
+            />
+            <motion.span
+              animate={menuOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
+              className="block h-px w-5 bg-foreground"
+            />
+          </button>
+        </nav>
+
+        {/* Mobile menu — frosted sheet below the pill */}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: EASE }}
+              className="glass mt-2 overflow-hidden rounded-3xl md:hidden"
+            >
+              <ul className="flex flex-col gap-1 p-3">
+                {NAV_ITEMS.map((item, i) => (
+                  <motion.li
+                    key={item.id}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * i, duration: 0.3 }}
+                  >
+                    <a
+                      href={`#${item.id}`}
+                      onClick={() => setMenuOpen(false)}
+                      className={cn(
+                        "block rounded-2xl px-4 py-3 text-base transition-colors",
+                        active === item.id
+                          ? "glass-chip text-foreground"
+                          : "text-muted"
+                      )}
+                    >
+                      {item.label}
+                    </a>
+                  </motion.li>
+                ))}
+                <li className="mt-1">
+                  <a
+                    href="#contact"
+                    onClick={() => setMenuOpen(false)}
+                    className="glass-primary block rounded-2xl px-4 py-3 text-center font-medium"
+                  >
+                    Let&apos;s talk
+                  </a>
+                </li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </motion.header>
   );
 }

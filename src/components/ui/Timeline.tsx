@@ -44,7 +44,7 @@ export function Timeline({ items }: TimelineProps) {
               {/* Node: org initials chip, centered on the spine */}
               <span
                 aria-hidden
-                className="absolute left-5 top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-2xl border border-glow bg-surface text-xs font-bold text-accent shadow-glow-sm md:left-1/2"
+                className="glass absolute left-5 top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full text-xs font-bold text-accent shadow-glow-sm md:left-1/2"
               >
                 {item.orgInitials}
               </span>
@@ -99,7 +99,7 @@ export function Timeline({ items }: TimelineProps) {
                     {item.tags.map((tag) => (
                       <li
                         key={tag}
-                        className="rounded-lg border border-subtle bg-surface/70 px-2.5 py-1 text-xs text-muted"
+                        className="glass-chip rounded-full px-2.5 py-1 text-xs text-muted"
                       >
                         {tag}
                       </li>

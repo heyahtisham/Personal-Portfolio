@@ -15,7 +15,7 @@ import {
 } from "@/animations/variants";
 
 const INPUT_CLASSES =
-  "w-full rounded-2xl border border-subtle bg-deep/60 px-4 py-3.5 text-sm text-foreground placeholder:text-muted/60 transition-all duration-300 focus:border-glow focus:bg-deep focus:shadow-glow-sm focus:outline-none";
+  "glass-chip w-full rounded-2xl px-4 py-3.5 text-sm text-foreground placeholder:text-muted/60 transition-all duration-300 focus:border-glow focus:shadow-glow-sm focus:outline-none";
 
 /** Abstract map illustration — dot grid with a glowing location pin. */
 function MapIllustration() {
@@ -195,7 +195,7 @@ export function Contact() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="flex h-12 flex-1 items-center justify-center rounded-2xl border border-subtle bg-surface/70 text-muted transition-all duration-300 hover:-translate-y-1 hover:border-glow hover:text-foreground hover:shadow-glow-sm"
+                  className="glass-chip flex h-12 flex-1 items-center justify-center rounded-2xl text-muted transition-all duration-300 hover:-translate-y-1 hover:text-foreground hover:shadow-glow-sm"
                 >
                   <Icon className="h-5 w-5" aria-hidden />
                 </a>

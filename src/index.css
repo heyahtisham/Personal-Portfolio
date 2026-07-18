@@ -13,6 +13,9 @@
   body {
     @apply bg-ink font-sans text-foreground;
     line-height: 1.7;
+    /* Reveal animations start with off-axis transforms; clip so they
+       never create a horizontal scrollbar. */
+    overflow-x: clip;
   }
 
   ::selection {
@@ -61,8 +64,78 @@
     background-size: 200% auto;
   }
 
+  /* ---- Liquid Glass surfaces ---------------------------------- */
+
+  /* Full glass panel: frosted blur + saturation, specular top edge,
+     soft drop shadow. Used for cards, nav, forms, windows. */
+  .glass {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(255, 255, 255, 0.02) 45%,
+      rgba(255, 255, 255, 0.045)
+    );
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+      0 16px 40px -16px rgba(2, 6, 23, 0.65);
+  }
+
   .card-base {
-    @apply rounded-4xl border border-subtle bg-surface/60 shadow-card backdrop-blur-sm;
+    @apply glass rounded-4xl;
+  }
+
+  /* Lightweight glass for small chips/tags — translucent gradient and
+     specular edge without backdrop-filter, so dozens per page stay cheap. */
+  .glass-chip {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.025)
+    );
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  /* Tinted primary glass — for filled buttons and highlighted elements. */
+  .glass-primary {
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: linear-gradient(
+      160deg,
+      rgba(59, 130, 246, 0.85),
+      rgba(37, 99, 235, 0.7)
+    );
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+      0 8px 32px -8px rgba(59, 130, 246, 0.5);
+  }
+
+  /* Sliding specular sheen on hover — attach to relative overflow-hidden parents. */
+  .glass-sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.08) 46%,
+      rgba(56, 189, 248, 0.07) 54%,
+      transparent 70%
+    );
+    transform: translateX(-70%);
+    opacity: 0;
+    transition: transform 0.9s ease, opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .glass-sheen:hover::after {
+    transform: translateX(70%);
+    opacity: 1;
   }
 
   .link-underline {

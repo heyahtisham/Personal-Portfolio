@@ -9,7 +9,7 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative border-t border-subtle bg-deep/60">
+    <footer className="relative border-t border-subtle bg-deep/30 backdrop-blur-xl">
       <div className="container py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr] md:gap-8">
           {/* Brand */}
@@ -18,7 +18,7 @@ export function Footer() {
               href="#top"
               className="flex items-center gap-2.5 text-lg font-semibold tracking-tight"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/15 text-accent ring-1 ring-primary/30">
+              <span className="glass-chip flex h-9 w-9 items-center justify-center rounded-full text-accent">
                 <Terminal className="h-[18px] w-[18px]" aria-hidden />
               </span>
               {SITE.name}
@@ -35,7 +35,7 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-subtle bg-surface/70 text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-glow hover:text-foreground hover:shadow-glow-sm"
+                  className="glass-chip flex h-10 w-10 items-center justify-center rounded-full text-muted transition-all duration-300 hover:-translate-y-0.5 hover:text-foreground hover:shadow-glow-sm"
                 >
                   <Icon className="h-4 w-4" aria-hidden />
                 </a>
@@ -89,7 +89,7 @@ export function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="group flex items-center gap-2 rounded-xl border border-subtle bg-surface/70 px-4 py-2 text-sm text-muted transition-all duration-300 hover:border-glow hover:text-foreground hover:shadow-glow-sm"
+            className="glass-chip group flex items-center gap-2 rounded-full px-4 py-2 text-sm text-muted transition-all duration-300 hover:text-foreground hover:shadow-glow-sm"
           >
             Back to top
             <ArrowUp

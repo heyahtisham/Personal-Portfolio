@@ -16,7 +16,7 @@ export function Section({ id, children, className, tinted }: SectionProps) {
       id={id}
       className={cn(
         "section-shell relative scroll-mt-24",
-        tinted && "bg-deep/50",
+        tinted && "bg-deep/30",
         className
       )}
     >

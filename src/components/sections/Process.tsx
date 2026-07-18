@@ -48,7 +48,7 @@ export function Process() {
               variants={fadeUp}
               className="relative flex gap-5 pl-0 lg:flex-col lg:gap-0"
             >
-              <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-glow bg-surface text-accent shadow-glow-sm">
+              <span className="glass relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-accent shadow-glow-sm">
                 <Icon className="h-6 w-6" aria-hidden />
               </span>
               <div className="lg:mt-5">

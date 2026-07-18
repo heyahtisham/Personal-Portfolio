@@ -67,7 +67,7 @@ export function CodeWindow() {
 
       <div className="card-base relative overflow-hidden rounded-3xl">
         {/* Title bar */}
-        <div className="flex items-center gap-2 border-b border-subtle bg-deep/80 px-5 py-3.5">
+        <div className="flex items-center gap-2 border-b border-subtle bg-deep/40 px-5 py-3.5">
           <span className="h-3 w-3 rounded-full bg-[#FF5F57]/80" />
           <span className="h-3 w-3 rounded-full bg-[#FEBC2E]/80" />
           <span className="h-3 w-3 rounded-full bg-[#28C840]/80" />
@@ -82,7 +82,7 @@ export function CodeWindow() {
         </div>
 
         {/* Code body */}
-        <div className="bg-deep/50 p-6 font-mono text-[13px] leading-7">
+        <div className="bg-deep/30 p-6 font-mono text-[13px] leading-7">
           {CODE_LINES.map((tokens, i) => (
             <motion.div
               key={i}

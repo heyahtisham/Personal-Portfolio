@@ -37,7 +37,7 @@ export function SectionHeading({
     >
       <motion.span
         variants={fadeUp}
-        className="inline-flex items-center gap-2 rounded-full border border-subtle bg-surface/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-accent"
+        className="glass-chip inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-accent"
       >
         <Icon className="h-3.5 w-3.5" aria-hidden />
         {eyebrow}

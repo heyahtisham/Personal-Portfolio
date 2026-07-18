@@ -53,7 +53,7 @@ export function Projects() {
                   {project.tech.map((tech) => (
                     <li
                       key={tech}
-                      className="rounded-lg border border-subtle bg-deep/60 px-2.5 py-1 text-xs text-muted"
+                      className="glass-chip rounded-full px-2.5 py-1 text-xs text-muted"
                     >
                       {tech}
                     </li>

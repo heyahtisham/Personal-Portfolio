@@ -14,10 +14,8 @@ interface ButtonProps {
 }
 
 const VARIANTS: Record<NonNullable<ButtonProps["variant"]>, string> = {
-  primary:
-    "bg-primary text-foreground shadow-glow-sm hover:shadow-glow hover:bg-primary/90",
-  secondary:
-    "border border-subtle bg-surface/80 text-foreground hover:border-glow hover:bg-card/80",
+  primary: "glass-primary text-foreground hover:brightness-110 hover:shadow-glow",
+  secondary: "glass text-foreground hover:border-glow hover:shadow-glow-sm",
   ghost: "text-muted hover:text-foreground",
 };
 
@@ -65,7 +63,7 @@ export function Button({
   );
 
   const base = cn(
-    "group inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold transition-all duration-300",
+    "group glass-sheen relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300",
     VARIANTS[variant],
     className
   );

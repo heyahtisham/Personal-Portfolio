@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { BackgroundFX } from "@/components/layout/BackgroundFX";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 
@@ -49,6 +50,7 @@ export default function Home() {
         Skip to content
       </a>
 
+      <BackgroundFX />
       <Navbar />
 
       <main>
