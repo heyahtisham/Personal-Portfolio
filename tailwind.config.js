@@ -87,6 +87,16 @@ export default {
           "40%": { opacity: "1" },
           "100%": { opacity: "0", transform: "translateY(16px)" },
         },
+        "pulse-glow": {
+          "0%, 100%": {
+            boxShadow:
+              "inset 0 1px 0 rgba(255,255,255,0.4), 0 0 14px rgba(59,130,246,0.35)",
+          },
+          "50%": {
+            boxShadow:
+              "inset 0 1px 0 rgba(255,255,255,0.4), 0 0 30px rgba(59,130,246,0.65)",
+          },
+        },
       },
       animation: {
         marquee: "marquee 40s linear infinite",
@@ -97,6 +107,7 @@ export default {
         blob: "blob 14s ease-in-out infinite",
         "blob-delayed": "blob 18s ease-in-out 4s infinite",
         "scroll-dot": "scroll-dot 2s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 2.6s ease-in-out infinite",
       },
     },
   },

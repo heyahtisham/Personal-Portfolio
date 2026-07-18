@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Terminal } from "lucide-react";
+import { ArrowRight, Terminal } from "lucide-react";
 import { NAV_ITEMS, SITE } from "@/constants/site";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -10,27 +10,21 @@ import { cn } from "@/lib/cn";
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
 
 /**
- * Floating Liquid Glass navbar — a detached frosted pill that hides on
- * scroll down and reappears on scroll up.
+ * Sticky Liquid Glass navbar — a floating frosted pill, always visible.
+ * The active capsule slides between section links as you scroll.
  */
 export function Navbar() {
-  const { direction, scrolled } = useScrollDirection();
+  const { scrolled } = useScrollDirection();
   const active = useActiveSection(SECTION_IDS);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const hidden = direction === "down" && !menuOpen;
-
   return (
-    <motion.header
-      animate={{ y: hidden ? "-120%" : "0%" }}
-      transition={{ duration: 0.35, ease: EASE }}
-      className="fixed inset-x-0 top-0 z-50 pt-3 md:pt-4"
-    >
+    <header className="fixed inset-x-0 top-0 z-50 pt-3 md:pt-4">
       <div className="container">
         <nav
           aria-label="Primary"
           className={cn(
-            "glass flex h-14 items-center justify-between rounded-full pl-5 pr-2.5 transition-shadow duration-300 md:h-16 md:pl-6 md:pr-3",
+            "glass flex h-14 items-center justify-between rounded-full pl-4 pr-2 transition-shadow duration-300 sm:pl-5 sm:pr-2.5 md:h-16 md:pl-6 md:pr-3",
             scrolled && "shadow-glow-sm"
           )}
         >
@@ -42,7 +36,7 @@ export function Navbar() {
               <Terminal className="h-4 w-4" aria-hidden />
             </span>
             {SITE.name}
-            <span className="hidden text-muted sm:inline">/ dev</span>
+            <span className="hidden text-muted lg:inline">/ dev</span>
           </a>
 
           {/* Desktop links */}
@@ -53,8 +47,9 @@ export function Navbar() {
                 <li key={item.id} className="relative">
                   <a
                     href={`#${item.id}`}
+                    aria-current={isActive ? "true" : undefined}
                     className={cn(
-                      "relative z-10 block rounded-full px-4 py-2 text-sm transition-colors duration-200",
+                      "relative block rounded-full px-3.5 py-2 text-sm transition-colors duration-200 lg:px-4",
                       isActive
                         ? "text-foreground"
                         : "text-muted hover:text-foreground"
@@ -62,26 +57,33 @@ export function Navbar() {
                   >
                     {isActive && (
                       <motion.span
-                        layoutId="nav-pill"
-                        transition={{ duration: 0.4, ease: EASE }}
-                        className="glass-chip absolute inset-0 -z-10 rounded-full"
+                        layoutId="nav-capsule"
+                        transition={{ type: "spring", stiffness: 350, damping: 32 }}
+                        className="glass-chip absolute inset-0 rounded-full"
+                        aria-hidden
                       />
                     )}
-                    {item.label}
+                    <span className="relative">{item.label}</span>
                   </a>
                 </li>
               );
             })}
           </ul>
 
-          <div className="hidden md:block">
-            <a
-              href="#contact"
-              className="glass-primary rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 hover:brightness-110"
-            >
-              Let&apos;s talk
-            </a>
-          </div>
+          {/* Animated CTA */}
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            className="glass-primary glass-sheen group relative hidden items-center gap-1.5 overflow-hidden rounded-full px-5 py-2.5 text-sm font-semibold animate-pulse-glow md:inline-flex"
+          >
+            Let&apos;s talk
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+              aria-hidden
+            />
+          </motion.a>
 
           {/* Hamburger */}
           <button
@@ -127,6 +129,7 @@ export function Navbar() {
                     <a
                       href={`#${item.id}`}
                       onClick={() => setMenuOpen(false)}
+                      aria-current={active === item.id ? "true" : undefined}
                       className={cn(
                         "block rounded-2xl px-4 py-3 text-base transition-colors",
                         active === item.id
@@ -152,6 +155,6 @@ export function Navbar() {
           )}
         </AnimatePresence>
       </div>
-    </motion.header>
+    </header>
   );
 }
