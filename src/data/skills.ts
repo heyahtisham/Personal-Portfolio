@@ -14,10 +14,10 @@ import type { SectionHeadingContent, SkillGroup } from "@/types";
  */
 export const SKILLS_HEADING: SectionHeadingContent = {
   eyebrow: "Skills",
-  title: "Tools I build",
+  title: "Technologies I Work",
   highlight: "with",
   description:
-    "An honest snapshot of my stack — strongest where I work daily, transparent about what I'm still learning.",
+    "The technologies and tools I use to build fast, responsive, and modern web applications.",
 };
 
 export const SKILL_GROUPS: SkillGroup[] = [
@@ -25,60 +25,63 @@ export const SKILL_GROUPS: SkillGroup[] = [
     title: "Frontend",
     icon: Layout,
     description:
-      "My core — component-driven, responsive interfaces with attention to detail and accessibility.",
+      "Building responsive, accessible, and interactive user interfaces with modern frontend technologies.",
     bento: "md:col-span-2 md:row-span-2",
     skills: [
-      { name: "React", level: 85 },
-      { name: "TypeScript", level: 78 },
-      { name: "JavaScript (ES6+)", level: 84 },
-      { name: "HTML5 & CSS3", level: 90 },
+      { name: "React", level: 90 },
+      { name: "TypeScript", level: 88 },
+      { name: "JavaScript (ES6+)", level: 90 },
+      { name: "HTML5 & CSS3", level: 98 },
       { name: "Tailwind CSS", level: 88 },
-      { name: "Responsive Design", level: 90 },
+      { name: "Responsive Design", level: 95 },
+      { name: "Performance Optimization", level: 85 },
+      { name: "Web Animations", level: 90 },
     ],
   },
   {
-    title: "Libraries",
+    title: "Libraries & Frameworks",
     icon: Package,
-    description: "The ecosystem I reach for in React projects.",
+    description: "Tools and libraries that help me create scalable, interactive, and maintainable React applications.",
     bento: "md:col-span-2",
     skills: [
       { name: "Framer Motion", level: 75 },
-      { name: "React Router", level: 82 },
-      { name: "TanStack Query", level: 70 },
+      { name: "React Router", level: 88 },
+      { name: "TanStack Query", level: 80 },
     ],
   },
   {
-    title: "Tools",
+    title: "Development Tools",
     icon: Wrench,
-    description: "My daily workflow.",
+    description: "My Toolkit for development.",
     bento: "md:col-span-1",
     skills: [
-      { name: "Git & GitHub", level: 82 },
+      { name: "Git & GitHub", level: 90 },
       { name: "VS Code", level: 90 },
-      { name: "Vite", level: 80 },
-      { name: "Canva", level: 75 },
+      { name: "Vite", level: 85 },
+      { name: "Canva", level: 98 },
     ],
   },
   {
-    title: "Deployment",
+    title: "Deployment & Hosting",
     icon: Rocket,
-    description: "Shipping sites to production.",
+    description: "Deploying with modern platforms.",
     bento: "md:col-span-1",
     skills: [
-      { name: "Vercel", level: 82 },
-      { name: "Netlify", level: 78 },
+      { name: "Vercel", level: 90 },
+      { name: "Netlify", level: 90 },
+      { name: "Hostinger", level: 80 },
     ],
   },
   {
-    title: "Backend — currently learning",
+    title: "UI & Design",
     icon: Server,
     description:
-      "Expanding toward full-stack development. These are in progress, not mastered — and I'm honest about that.",
+      "Creating clean, intuitive interfaces with a strong focus on visual design and user experience.",
     bento: "md:col-span-4",
     skills: [
-      { name: "Node.js", level: 45 },
-      { name: "Express", level: 40 },
-      { name: "MongoDB", level: 40 },
+      { name: "UI Design", level: 82 },
+      { name: "Canva", level: 98 },
+      { name: "Figma", level: 70   },
     ],
   },
 ];
