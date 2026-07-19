@@ -10,14 +10,14 @@ export const PERSONAL = {
   company: "Neksio",
   workType: "Remote",
   tagline: "I build clean, fast, responsive interfaces for the web.",
-  email: "neksiotech@gmail.com",
+  email: "imahtishamshoukat@gmail.com",
   location: "Arifwala, Punjab, Pakistan",
   timezone: "GMT+5 · Remote friendly",
   availability: "Available for freelance projects",
 
   // ── Links — replace with your real profile URLs ──
-  github: "https://github.com/ahtishamshoukat",
-  githubUsername: "ahtishamshoukat",
-  linkedin: "https://www.linkedin.com/in/ahtisham-shoukat",
+  github: "https://github.com/heyahtisham/",
+  githubUsername: "heyahtisham",
+  linkedin: "https://www.linkedin.com/in/heyahtisham/",
   resumeUrl: "/resume.pdf",
 } as const;

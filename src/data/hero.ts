@@ -8,14 +8,14 @@ import type { CodeToken } from "@/types";
 export const HERO = {
   /** Small pills above the headline. First one shows the green pulse dot. */
   availabilityBadge: PERSONAL.availability,
-  secondaryBadge: `${PERSONAL.role} @ ${PERSONAL.company}`,
+  secondaryBadge: `${PERSONAL.role}`,
 
   /** Headline: plain part + gradient-highlighted word. */
   headline: "Building modern web experiences that feel",
   headlineHighlight: "effortless",
 
   intro:
-    `I'm ${PERSONAL.name}, a frontend web developer at ${PERSONAL.company}. ` +
+    `I'm ${PERSONAL.name}, a frontend web developer. ` +
     "I build clean, fast, accessible and responsive websites with React, " +
     "TypeScript and Tailwind CSS — focused on user experience and performance.",
 
@@ -50,7 +50,13 @@ export const CODE_LINES: CodeToken[][] = [
   [
     { text: "  role", className: "text-sky-300" },
     { text: ": ", className: "text-muted" },
-    { text: "'Frontend Developer @ Neksio'", className: "text-emerald-300" },
+    { text: "'Frontend Web Developer'", className: "text-emerald-300" },
+    { text: ",", className: "text-muted" },
+  ],
+  [
+    { text: "  experience", className: "text-sky-300" },
+    { text: ": ", className: "text-muted" },
+    { text: "'+2 Years'", className: "text-emerald-300" },
     { text: ",", className: "text-muted" },
   ],
   [
@@ -64,15 +70,15 @@ export const CODE_LINES: CodeToken[][] = [
     { text: "],", className: "text-muted" },
   ],
   [
-    { text: "  learning", className: "text-sky-300" },
+    { text: "  specialty", className: "text-sky-300" },
     { text: ": ", className: "text-muted" },
-    { text: "'Node.js & MongoDB'", className: "text-emerald-300" },
+    { text: "'Fast, Accessible Interfaces'", className: "text-emerald-300" },
     { text: ",", className: "text-muted" },
   ],
   [
-    { text: "  focus", className: "text-sky-300" },
+    { text: "  status", className: "text-sky-300" },
     { text: ": ", className: "text-muted" },
-    { text: "'pixel-perfect UIs'", className: "text-emerald-300" },
+    { text: "'Available for Projects'", className: "text-emerald-300" },
     { text: ",", className: "text-muted" },
   ],
   [{ text: "};", className: "text-muted" }],
