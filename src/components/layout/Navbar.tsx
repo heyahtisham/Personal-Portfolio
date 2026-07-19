@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Terminal } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PERSONAL } from "@/data/personal";
 import { NAV_ITEMS, NAVBAR } from "@/data/navigation";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -33,9 +33,6 @@ export function Navbar() {
             href="#top"
             className="flex min-w-0 items-center gap-2 text-sm font-semibold tracking-tight sm:gap-2.5 sm:text-[15px]"
           >
-            <span className="glass-chip flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-accent sm:h-8 sm:w-8">
-              <Terminal className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden />
-            </span>
             <span className="truncate">{PERSONAL.firstName}</span>
             <span className="hidden text-muted lg:inline">{NAVBAR.logoSuffix}</span>
           </a>
@@ -148,7 +145,7 @@ export function Navbar() {
                     onClick={() => setMenuOpen(false)}
                     className="glass-primary block rounded-2xl px-4 py-3 text-center font-medium"
                   >
-                    {NAVBAR.ctaLabel}
+                    {NAVBAR.ctaHref}
                   </a>
                 </li>
               </ul>
