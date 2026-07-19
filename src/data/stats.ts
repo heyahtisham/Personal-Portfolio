@@ -11,7 +11,7 @@ export interface StatItem {
 
 export const ABOUT_STATS: StatItem[] = [
   { value: 10, suffix: "+", label: "Projects built" },
-  { value: 12, suffix: "+", label: "Technologies used" },
-  { value: 1, suffix: "", label: "Certification earned" },
-  { value: 2, suffix: "+", label: "Years learning web dev" },
+  { value: 20, suffix: "+", label: "Technologies used" },
+  { value: 98, suffix: "+", label: "Lighthouse Score" },
+  { value: 2, suffix: "+", label: "Years Experience" },
 ];

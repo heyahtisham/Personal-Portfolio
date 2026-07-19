@@ -8,15 +8,15 @@ import type { SectionHeadingContent } from "@/types";
  */
 export const ABOUT_HEADING: SectionHeadingContent = {
   eyebrow: "About me",
-  title: "A developer who cares about the",
-  highlight: "details",
+  title: "Designing experiences",
+  highlight: "Engineering performance",
   description:
-    "From Arifwala, Pakistan — turning designs into fast, responsive, interactive websites.",
+    "Based in Pakistan, I build fast, accessible, and modern web experiences that combine thoughtful design with clean engineering.",
 };
 
 export const ABOUT_STORY: string[] = [
-  "I got into web development because I genuinely enjoy building websites and modern user interfaces. That interest took me through a Web Design & Development diploma at the Vocational Training Institute (VTI) in Arifwala, and into my current role as a Frontend Web Developer at Neksio.",
-  "Day to day I work with React, TypeScript and Tailwind CSS, transforming designs into responsive, interactive websites. I care about clean code, maintainable architecture and smooth user experience — and I'm continuously learning, currently expanding toward full-stack development with Node.js and MongoDB.",
+  "I'm a frontend web developer focused on building modern, responsive web applications that feel fast, intuitive, and polished. I enjoy transforming ideas into products that not only look great but also deliver exceptional user experiences.",
+  "Today I primarily work with React, TypeScript, and Tailwind CSS, turning UI designs into production-ready applications. I value clean architecture, reusable components, accessibility, and performance.",
 ];
 
 export interface AboutTimelineEntry {
@@ -26,9 +26,9 @@ export interface AboutTimelineEntry {
 
 /** Compact preview timeline shown next to the story. */
 export const ABOUT_TIMELINE: AboutTimelineEntry[] = [
-  { year: "2026", label: "Frontend Web Developer · Neksio (Remote)" },
-  { year: "2025", label: "Web Design & Development · VTI Arifwala" },
-  { year: "2026", label: "BS Computer Science · starting September" },
+  { year: "2026 — Present", label: "Frontend Web Developer · Neksio (Remote)" },
+  { year: "2025 — 2026", label: "Web Design & Development · VTI Arifwala" },
+  { year: "Updated Soon", label: "BS Computer Science · starting Soon" },
 ];
 
 export interface AboutHighlight {
@@ -40,22 +40,22 @@ export interface AboutHighlight {
 export const ABOUT_HIGHLIGHTS: AboutHighlight[] = [
   {
     icon: Layers,
-    title: "Design to code",
-    text: "I turn Figma designs into pixel-accurate, responsive React interfaces that work on every screen size.",
+    title: "Pixel-perfect Development",
+    text: "Transforming designs into polished, responsive interfaces with careful attention to spacing, typography, and consistency. Every layout is crafted to look and feel great across all screen sizes.",
   },
   {
     icon: Code2,
-    title: "Clean, maintainable code",
-    text: "Typed components, sensible structure and readable naming — code the next developer can build on.",
+    title: "Clean & Scalable Code",
+    text: "Building reusable components, maintainable codebases, and well-structured architectures using modern development practices, making projects easier to scale and maintain over time.",
   },
   {
     icon: Zap,
-    title: "Performance & accessibility",
-    text: "Fast loads, smooth interactions and keyboard-friendly markup are part of the job, not extras.",
+    title: "Performance & Accessibility",
+    text: "Optimizing websites for speed, accessibility, and smooth user interactions. I focus on fast loading times, semantic HTML, keyboard navigation, and responsive experiences that work for everyone.",
   },
   {
     icon: Sparkles,
-    title: "Always learning",
-    text: "Currently deepening my React and TypeScript skills while expanding toward full-stack with Node.js.",
+    title: "Continuous Learning",
+    text: "The web evolves every day, and so do I. I'm constantly improving my skills, exploring modern technologies, and expanding into full-stack development to build complete end-to-end applications.",
   },
 ];
