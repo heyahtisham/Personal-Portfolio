@@ -12,10 +12,10 @@ export const SERVICES: Service[] = [
   {
     title: "Website Development",
     description:
-      "Complete web products built from scratch — architecture, code, deployment and everything between. You bring the idea; I ship the product.",
+      "Complete websites built from scratch — responsive, accessible and fast on every device. You bring the idea; I ship the interface.",
     features: [
-      "Full-stack builds with React & Node.js",
-      "CMS or headless — your call",
+      "React & Next.js builds",
+      "Headless CMS integration",
       "SEO and analytics wired in from day one",
     ],
     icon: Globe,

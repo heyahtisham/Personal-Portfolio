@@ -92,8 +92,8 @@ export function About() {
           {/* Timeline preview */}
           <div className="mt-2 border-l border-subtle pl-6">
             {[
-              { year: "2024", label: "Senior Frontend Engineer · Neksio Tech" },
-              { year: "2022", label: "Full-Stack Developer · Bytecraft Studio" },
+              { year: "2024", label: "Senior Frontend Developer · Neksio Tech" },
+              { year: "2022", label: "Frontend Developer · Bytecraft Studio" },
               { year: "2021", label: "Freelance Frontend Developer" },
             ].map((item) => (
               <div key={item.year} className="relative pb-5 last:pb-0">

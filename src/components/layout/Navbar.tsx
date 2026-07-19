@@ -35,7 +35,7 @@ export function Navbar() {
             <span className="glass-chip flex h-8 w-8 items-center justify-center rounded-full text-accent">
               <Terminal className="h-4 w-4" aria-hidden />
             </span>
-            {SITE.name}
+            {SITE.firstName}
             <span className="hidden text-muted lg:inline">/ dev</span>
           </a>
 

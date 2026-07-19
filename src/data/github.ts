@@ -2,9 +2,9 @@ import type { PinnedRepo } from "@/types";
 
 export const PINNED_REPOS: PinnedRepo[] = [
   {
-    name: "relay-cli",
+    name: "usekit",
     description:
-      "Zero-config deployment CLI with per-branch preview environments.",
+      "Forty zero-dependency React hooks — typed, tested, tree-shakeable.",
     language: "TypeScript",
     languageColor: "#38BDF8",
     stars: 1243,
@@ -22,7 +22,7 @@ export const PINNED_REPOS: PinnedRepo[] = [
   {
     name: "pulseboard",
     description:
-      "Real-time analytics dashboard handling 2M+ events per day.",
+      "Real-time analytics dashboard UI rendering live streams at 60fps.",
     language: "TypeScript",
     languageColor: "#38BDF8",
     stars: 456,

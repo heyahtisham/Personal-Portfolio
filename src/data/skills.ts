@@ -24,14 +24,14 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ],
   },
   {
-    title: "Backend",
+    title: "Integration",
     icon: Server,
-    description: "APIs that stay fast under load.",
+    description: "Wiring interfaces to any backend, cleanly.",
     bento: "md:col-span-2",
     skills: [
-      { name: "Node.js / Express", level: 88 },
-      { name: "PostgreSQL", level: 84 },
-      { name: "REST / GraphQL", level: 86 },
+      { name: "REST / GraphQL APIs", level: 88 },
+      { name: "Firebase / Supabase", level: 82 },
+      { name: "Node.js Basics", level: 74 },
     ],
   },
   {
@@ -60,9 +60,9 @@ export const SKILL_GROUPS: SkillGroup[] = [
     description: "Ship early, ship safely, roll back in seconds.",
     bento: "md:col-span-2",
     skills: [
-      { name: "Vercel / Netlify", level: 90 },
-      { name: "Docker / CI-CD", level: 80 },
-      { name: "AWS Basics", level: 74 },
+      { name: "Vercel / Netlify", level: 92 },
+      { name: "GitHub Actions", level: 82 },
+      { name: "Web Performance / SEO", level: 88 },
     ],
   },
   {

@@ -24,7 +24,8 @@ export function Footer() {
               {SITE.name}
             </a>
             <p className="mt-4 text-sm text-muted">
-              {SITE.role} crafting fast, elegant products for the web. Currently{" "}
+              {SITE.role} crafting fast, beautiful interfaces for the web.
+              Currently{" "}
               <span className="text-foreground">available for new projects</span>.
             </p>
             <div className="mt-6 flex gap-3">

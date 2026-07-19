@@ -1,16 +1,16 @@
 export const SITE = {
-  name: "Ahtisham",
+  name: "Ahtisham Shoukat",
   firstName: "Ahtisham",
-  role: "Full-Stack Developer",
-  tagline: "I build fast, elegant products for the web.",
+  role: "Frontend Web Developer",
+  tagline: "I craft fast, beautiful interfaces for the web.",
   email: "neksiotech@gmail.com",
   location: "Lahore, Pakistan",
   timezone: "GMT+5 · Remote friendly",
   availability: "Available for new projects",
   yearsExperience: 5,
-  github: "https://github.com/ahtisham",
-  linkedin: "https://linkedin.com/in/ahtisham",
-  twitter: "https://twitter.com/ahtisham",
+  github: "https://github.com/ahtishamshoukat",
+  linkedin: "https://linkedin.com/in/ahtishamshoukat",
+  twitter: "https://twitter.com/ahtishamshoukat",
   resumeUrl: "#",
 } as const;
 

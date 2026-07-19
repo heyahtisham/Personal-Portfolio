@@ -16,7 +16,13 @@ const CODE_LINES: CodeToken[][] = [
   [
     { text: "  name", className: "text-sky-300" },
     { text: ": ", className: "text-muted" },
-    { text: "'Ahtisham'", className: "text-emerald-300" },
+    { text: "'Ahtisham Shoukat'", className: "text-emerald-300" },
+    { text: ",", className: "text-muted" },
+  ],
+  [
+    { text: "  role", className: "text-sky-300" },
+    { text: ": ", className: "text-muted" },
+    { text: "'Frontend Developer'", className: "text-emerald-300" },
     { text: ",", className: "text-muted" },
   ],
   [

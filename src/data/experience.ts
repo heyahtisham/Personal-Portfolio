@@ -3,7 +3,7 @@ import type { TimelineItem } from "@/types";
 export const EXPERIENCE: TimelineItem[] = [
   {
     period: "2024 — Present",
-    title: "Senior Frontend Engineer",
+    title: "Senior Frontend Developer",
     org: "Neksio Tech",
     orgInitials: "NT",
     description:
@@ -17,17 +17,17 @@ export const EXPERIENCE: TimelineItem[] = [
   },
   {
     period: "2022 — 2024",
-    title: "Full-Stack Developer",
+    title: "Frontend Developer",
     org: "Bytecraft Studio",
     orgInitials: "BS",
     description:
-      "Shipped client products end-to-end — from Figma handoff to production deploys — for fintech and e-commerce clients.",
+      "Built client-facing interfaces end-to-end — from Figma handoff to production deploys — for fintech and e-commerce clients.",
     points: [
       "Delivered 14 client projects with a 100% on-time record",
-      "Introduced CI/CD pipelines that cut release time from days to minutes",
-      "Scaled an e-commerce API to 50k daily orders",
+      "Rebuilt a checkout flow that lifted conversion by 34%",
+      "Introduced component testing that cut UI regressions by 80%",
     ],
-    tags: ["Node.js", "PostgreSQL", "React", "Docker"],
+    tags: ["React", "TypeScript", "Tailwind", "Framer Motion"],
   },
   {
     period: "2021 — 2022",

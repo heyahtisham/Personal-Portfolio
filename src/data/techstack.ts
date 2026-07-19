@@ -21,9 +21,9 @@ export const TECH_CATEGORIES: TechCategory[] = [
     ],
   },
   {
-    label: "Backend",
+    label: "Integration",
     icon: Server,
-    items: ["Node.js", "Express", "PostgreSQL", "Prisma", "Redis", "GraphQL"],
+    items: ["REST APIs", "GraphQL", "Firebase", "Supabase", "Stripe", "Node.js"],
   },
   {
     label: "Tools",
