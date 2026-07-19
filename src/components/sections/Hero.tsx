@@ -12,11 +12,24 @@ export function Hero() {
 
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-24 pb-16 md:pt-28">
-      {/* Hero-only accents on top of the global background */}
+      {/* Hero-only accents on top of the global background — gradient
+          blobs (no blur filter) animated with cheap transforms */}
       <div aria-hidden className="absolute inset-0">
         <div className="absolute inset-0 bg-radial-fade" />
-        <div className="absolute -left-32 top-1/4 h-96 w-96 animate-blob rounded-full bg-primary/15 blur-[120px]" />
-        <div className="absolute -right-24 bottom-1/4 h-80 w-80 animate-blob-delayed rounded-full bg-accent/10 blur-[100px]" />
+        <div
+          className="absolute -left-40 top-1/4 h-[32rem] w-[32rem] animate-blob"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(37,99,235,0.16), transparent 60%)",
+          }}
+        />
+        <div
+          className="absolute -right-32 bottom-1/4 h-[28rem] w-[28rem] animate-blob-delayed"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(56,189,248,0.11), transparent 60%)",
+          }}
+        />
       </div>
 
       <div className="container relative">

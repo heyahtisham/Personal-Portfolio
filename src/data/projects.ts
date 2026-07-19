@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
     demo: "#top",
     featured: true,
     tone: "primary",
-    bento: "md:col-span-3 md:row-span-2",
+    bento: "md:col-span-6",
   },
   {
     title: "Landing Page Collection",

@@ -19,6 +19,11 @@ const Experience = lazy(() =>
 const Education = lazy(() =>
   import("@/components/sections/Education").then((m) => ({ default: m.Education }))
 );
+const Certificates = lazy(() =>
+  import("@/components/sections/Certificates").then((m) => ({
+    default: m.Certificates,
+  }))
+);
 const Services = lazy(() =>
   import("@/components/sections/Services").then((m) => ({ default: m.Services }))
 );
@@ -61,6 +66,7 @@ export default function Home() {
           <Projects />
           <Experience />
           <Education />
+          <Certificates />
           <Services />
           <Process />
           <Testimonials />

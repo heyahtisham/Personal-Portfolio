@@ -20,23 +20,23 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 pt-3 md:pt-4">
-      <div className="container">
+    <header className="fixed inset-x-0 top-0 z-50 pt-2.5 md:pt-4">
+      <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-5 md:px-8 xl:px-10">
         <nav
           aria-label="Primary"
           className={cn(
-            "glass flex h-14 items-center justify-between rounded-full pl-4 pr-2 transition-shadow duration-300 sm:pl-5 sm:pr-2.5 md:h-16 md:pl-6 md:pr-3",
+            "glass flex h-12 items-center justify-between rounded-full pl-3 pr-1.5 transition-shadow duration-300 sm:h-14 sm:pl-5 sm:pr-2.5 md:h-16 md:pl-6 md:pr-3",
             scrolled && "shadow-glow-sm"
           )}
         >
           <a
             href="#top"
-            className="flex items-center gap-2.5 text-[15px] font-semibold tracking-tight"
+            className="flex min-w-0 items-center gap-2 text-sm font-semibold tracking-tight sm:gap-2.5 sm:text-[15px]"
           >
-            <span className="glass-chip flex h-8 w-8 items-center justify-center rounded-full text-accent">
-              <Terminal className="h-4 w-4" aria-hidden />
+            <span className="glass-chip flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-accent sm:h-8 sm:w-8">
+              <Terminal className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden />
             </span>
-            {PERSONAL.firstName}
+            <span className="truncate">{PERSONAL.firstName}</span>
             <span className="hidden text-muted lg:inline">{NAVBAR.logoSuffix}</span>
           </a>
 
@@ -92,7 +92,7 @@ export function Navbar() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="glass-chip flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full md:hidden"
+            className="glass-chip flex h-9 w-9 shrink-0 flex-col items-center justify-center gap-[5px] rounded-full sm:h-10 sm:w-10 md:hidden"
           >
             <motion.span
               animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}

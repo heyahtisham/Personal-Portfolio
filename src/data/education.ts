@@ -1,9 +1,4 @@
-import { BadgeCheck, GraduationCap } from "lucide-react";
-import type {
-  Certificate,
-  SectionHeadingContent,
-  TimelineItem,
-} from "@/types";
+import type { SectionHeadingContent, TimelineItem } from "@/types";
 
 /**
  * ─── EDUCATION SECTION ────────────────────────────────────────────
@@ -56,21 +51,5 @@ export const EDUCATION: TimelineItem[] = [
     description: "Secondary education with a science concentration.",
     points: [],
     tags: ["Science"],
-  },
-];
-
-/** Certificates you've actually earned — add more as they arrive. */
-export const CERTIFICATES: Certificate[] = [
-  {
-    title: "Web Design & Development",
-    issuer: "VTI Arifwala",
-    year: "2026",
-    icon: BadgeCheck,
-  },
-  {
-    title: "BS Computer Science",
-    issuer: "Starting September 2026",
-    year: "Upcoming",
-    icon: GraduationCap,
   },
 ];

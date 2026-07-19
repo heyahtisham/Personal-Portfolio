@@ -9,10 +9,14 @@ import { CODE_LINES, HERO } from "@/data/hero";
 export function CodeWindow() {
   return (
     <div className="relative">
-      {/* Glow behind the window */}
+      {/* Glow behind the window — gradient, no blur filter */}
       <div
         aria-hidden
-        className="absolute -inset-8 rounded-[32px] bg-primary/10 blur-3xl"
+        className="absolute -inset-12"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(37,99,235,0.14), transparent 70%)",
+        }}
       />
 
       <div className="card-base relative overflow-hidden rounded-3xl">

@@ -35,7 +35,15 @@ export function Projects() {
       >
         {PROJECTS.map((project) => (
           <motion.div key={project.title} variants={fadeUp} className={cn(project.bento)}>
-            <TiltCard className="flex h-full flex-col p-6 md:p-7" intensity={2}>
+            <TiltCard
+              className={cn(
+                "h-full p-6 md:p-7",
+                project.featured
+                  ? "grid gap-6 md:grid-cols-[1.05fr_1fr] md:items-center"
+                  : "flex flex-col"
+              )}
+              intensity={2}
+            >
               {project.featured && (
                 <span className="absolute right-6 top-6 z-10 inline-flex items-center gap-1.5 rounded-full border border-glow bg-primary/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-accent">
                   <Star className="h-3 w-3 fill-accent" aria-hidden />
@@ -45,7 +53,12 @@ export function Projects() {
 
               <ProjectVisual tone={project.tone} large={project.featured} />
 
-              <div className="mt-6 flex flex-1 flex-col">
+              <div
+                className={cn(
+                  "flex flex-col",
+                  project.featured ? "mt-2 md:mt-0" : "mt-6 flex-1"
+                )}
+              >
                 <div className="flex items-center gap-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                     {project.tagline}

@@ -59,7 +59,7 @@ export const SERVICES: Service[] = [
       "Fast, focused pages that load quickly and guide visitors to act.",
     features: ["Speed-first builds"],
     icon: MousePointerClick,
-    bento: "md:col-span-1",
+    bento: "md:col-span-2",
   },
   {
     title: "Portfolio Websites",
@@ -67,7 +67,7 @@ export const SERVICES: Service[] = [
       "Personal sites that present your work with the polish it deserves.",
     features: ["Custom design & motion"],
     icon: UserRound,
-    bento: "md:col-span-1",
+    bento: "md:col-span-2",
   },
   {
     title: "UI Implementation",
@@ -91,6 +91,6 @@ export const SERVICES: Service[] = [
       "Faster loads and smoother interactions — image optimization, code splitting and Lighthouse-guided fixes.",
     features: ["Core Web Vitals improvements", "Bundle-size cleanup"],
     icon: Gauge,
-    bento: "md:col-span-2",
+    bento: "md:col-span-4",
   },
 ];

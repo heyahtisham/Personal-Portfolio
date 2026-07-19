@@ -77,14 +77,10 @@ export function GitHubActivity() {
               {weeks.map((week, w) => (
                 <div key={w} className="flex flex-col gap-[3px]">
                   {week.map((day) => (
-                    <motion.span
+                    <span
                       key={day.date}
-                      initial={{ opacity: 0, scale: 0.6 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: w * 0.008, duration: 0.25 }}
                       title={`${day.count} contributions on ${day.date}`}
-                      className={`h-2.5 w-2.5 rounded-[3px] ${LEVEL_CLASSES[day.level]} transition-colors hover:!bg-accent`}
+                      className={`h-2.5 w-2.5 rounded-[3px] ${LEVEL_CLASSES[day.level]} hover:!bg-accent`}
                     />
                   ))}
                 </div>

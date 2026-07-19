@@ -1,16 +1,40 @@
 /**
  * Site-wide ambient background — fixed color field the Liquid Glass
- * surfaces blur and refract. Static gradients (no animation) keep the
- * GPU cost near zero while giving every glass panel depth.
+ * surfaces blur and refract. Uses radial gradients instead of CSS
+ * blur filters, so the whole layer costs almost nothing to composite.
  */
 export function BackgroundFX() {
   return (
     <div aria-hidden className="fixed inset-0 -z-10 overflow-hidden bg-ink">
-      {/* Ambient color pools */}
-      <div className="absolute -top-[20%] left-[10%] h-[55vh] w-[55vw] rounded-full bg-primary/[0.13] blur-[110px]" />
-      <div className="absolute top-[30%] -right-[15%] h-[50vh] w-[40vw] rounded-full bg-accent/[0.09] blur-[110px]" />
-      <div className="absolute bottom-[-10%] left-[-10%] h-[45vh] w-[40vw] rounded-full bg-violet-600/[0.08] blur-[110px]" />
-      <div className="absolute bottom-[15%] right-[20%] h-[30vh] w-[25vw] rounded-full bg-primary/[0.07] blur-[90px]" />
+      {/* Ambient color pools — pre-blurred via gradient falloff */}
+      <div
+        className="absolute -top-[20%] left-[5%] h-[60vh] w-[60vw]"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(37,99,235,0.14), transparent 65%)",
+        }}
+      />
+      <div
+        className="absolute top-[28%] -right-[12%] h-[55vh] w-[45vw]"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(56,189,248,0.10), transparent 65%)",
+        }}
+      />
+      <div
+        className="absolute bottom-[-8%] left-[-8%] h-[50vh] w-[45vw]"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(124,58,237,0.09), transparent 65%)",
+        }}
+      />
+      <div
+        className="absolute bottom-[12%] right-[15%] h-[35vh] w-[30vw]"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(37,99,235,0.08), transparent 65%)",
+        }}
+      />
 
       {/* Structure */}
       <div className="absolute inset-0 bg-grid-pattern bg-[size:56px_56px] opacity-60" />
