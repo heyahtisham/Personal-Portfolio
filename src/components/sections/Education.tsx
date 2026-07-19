@@ -4,19 +4,13 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Timeline } from "@/components/ui/Timeline";
 import { TiltCard } from "@/components/ui/TiltCard";
-import { CERTIFICATES, EDUCATION } from "@/data/education";
+import { CERTIFICATES, EDUCATION, EDUCATION_HEADING } from "@/data/education";
 import { fadeUp, staggerContainer, VIEWPORT } from "@/animations/variants";
 
 export function Education() {
   return (
     <Section id="education" tinted>
-      <SectionHeading
-        eyebrow="Education"
-        icon={GraduationCap}
-        title="Learning never"
-        highlight="stops"
-        description="A CS degree laid the foundation — deliberate, continuous learning keeps it sharp."
-      />
+      <SectionHeading icon={GraduationCap} {...EDUCATION_HEADING} />
 
       <Timeline items={EDUCATION} />
 

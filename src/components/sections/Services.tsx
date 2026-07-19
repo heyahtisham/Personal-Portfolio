@@ -3,20 +3,14 @@ import { Check, Handshake } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TiltCard } from "@/components/ui/TiltCard";
-import { SERVICES } from "@/data/services";
+import { SERVICES, SERVICES_HEADING } from "@/data/services";
 import { fadeUp, staggerContainer, VIEWPORT } from "@/animations/variants";
 import { cn } from "@/lib/cn";
 
 export function Services() {
   return (
     <Section id="services">
-      <SectionHeading
-        eyebrow="Services"
-        icon={Handshake}
-        title="How I can"
-        highlight="help"
-        description="Clear scope, honest timelines, senior-level execution — whether it's a landing page or a full product."
-      />
+      <SectionHeading icon={Handshake} {...SERVICES_HEADING} />
 
       <motion.div
         variants={staggerContainer(0.08)}

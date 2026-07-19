@@ -1,55 +1,76 @@
-import { Award, BadgeCheck, BookOpen, GraduationCap } from "lucide-react";
-import type { Certificate, TimelineItem } from "@/types";
+import { BadgeCheck, GraduationCap } from "lucide-react";
+import type {
+  Certificate,
+  SectionHeadingContent,
+  TimelineItem,
+} from "@/types";
+
+/**
+ * ─── EDUCATION SECTION ────────────────────────────────────────────
+ * Real education timeline (newest first) + earned certificates.
+ */
+export const EDUCATION_HEADING: SectionHeadingContent = {
+  eyebrow: "Education",
+  title: "Learning never",
+  highlight: "stops",
+  description:
+    "Formal education, hands-on training — and a degree on the horizon.",
+};
 
 export const EDUCATION: TimelineItem[] = [
   {
-    period: "2017 — 2021",
+    period: "Starting Sep 2026",
     title: "BS Computer Science",
-    org: "University of the Punjab",
-    orgInitials: "PU",
+    org: "Enrolling this fall",
+    orgInitials: "CS",
     description:
-      "Graduated with distinction. Focused on algorithms, databases and human-computer interaction.",
-    points: [
-      "Final-year project: real-time collaboration editor (CRDT-based)",
-      "Led the university web development society for two years",
-    ],
-    tags: ["Algorithms", "Databases", "HCI"],
+      "Beginning a computer science degree to deepen my fundamentals — algorithms, data structures and software engineering.",
+    points: [],
+    tags: ["Upcoming"],
   },
   {
-    period: "2021",
-    title: "Meta Frontend Professional Certificate",
-    org: "Coursera",
-    orgInitials: "CO",
+    period: "Jul 2025 — Feb 2026",
+    title: "Web Design & Development",
+    org: "Vocational Training Institute (VTI), Arifwala",
+    orgInitials: "VT",
     description:
-      "Nine-course specialization covering advanced React patterns, testing and UX principles.",
+      "Practical diploma covering the full frontend path: HTML, CSS, JavaScript, React and responsive design — capped with real projects.",
     points: [],
-    tags: ["React", "Testing", "UX"],
+    tags: ["HTML5", "CSS3", "JavaScript", "React"],
+  },
+  {
+    period: "Completed",
+    title: "Intermediate — FSc Pre-Engineering",
+    org: "Frontier Group of Colleges, Arifwala",
+    orgInitials: "FC",
+    description:
+      "Pre-engineering studies with a focus on mathematics and physics — where structured problem-solving clicked for me.",
+    points: [],
+    tags: ["Mathematics", "Physics"],
+  },
+  {
+    period: "Completed",
+    title: "Matriculation",
+    org: "Govt. M.C. High School for Boys, Arifwala",
+    orgInitials: "MC",
+    description: "Secondary education with a science concentration.",
+    points: [],
+    tags: ["Science"],
   },
 ];
 
+/** Certificates you've actually earned — add more as they arrive. */
 export const CERTIFICATES: Certificate[] = [
   {
-    title: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    year: "2023",
+    title: "Web Design & Development",
+    issuer: "VTI Arifwala",
+    year: "2026",
     icon: BadgeCheck,
   },
   {
-    title: "Advanced React Patterns",
-    issuer: "Frontend Masters",
-    year: "2023",
-    icon: BookOpen,
-  },
-  {
-    title: "TypeScript Deep Dive",
-    issuer: "Total TypeScript",
-    year: "2022",
-    icon: Award,
-  },
-  {
-    title: "UI Design Foundations",
-    issuer: "Designlab",
-    year: "2022",
+    title: "BS Computer Science",
+    issuer: "Starting September 2026",
+    year: "Upcoming",
     icon: GraduationCap,
   },
 ];

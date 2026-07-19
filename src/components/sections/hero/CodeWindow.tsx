@@ -1,66 +1,10 @@
 import { motion } from "framer-motion";
 import { Braces, GitBranch, Zap } from "lucide-react";
-
-interface CodeToken {
-  text: string;
-  className: string;
-}
-
-/** One line of syntax-highlighted "code" rendered from tokens. */
-const CODE_LINES: CodeToken[][] = [
-  [
-    { text: "const", className: "text-accent" },
-    { text: " developer", className: "text-foreground" },
-    { text: " = {", className: "text-muted" },
-  ],
-  [
-    { text: "  name", className: "text-sky-300" },
-    { text: ": ", className: "text-muted" },
-    { text: "'Ahtisham Shoukat'", className: "text-emerald-300" },
-    { text: ",", className: "text-muted" },
-  ],
-  [
-    { text: "  role", className: "text-sky-300" },
-    { text: ": ", className: "text-muted" },
-    { text: "'Frontend Developer'", className: "text-emerald-300" },
-    { text: ",", className: "text-muted" },
-  ],
-  [
-    { text: "  stack", className: "text-sky-300" },
-    { text: ": [", className: "text-muted" },
-    { text: "'React'", className: "text-emerald-300" },
-    { text: ", ", className: "text-muted" },
-    { text: "'TypeScript'", className: "text-emerald-300" },
-    { text: "],", className: "text-muted" },
-  ],
-  [
-    { text: "  passion", className: "text-sky-300" },
-    { text: ": ", className: "text-muted" },
-    { text: "'pixel-perfect UIs'", className: "text-emerald-300" },
-    { text: ",", className: "text-muted" },
-  ],
-  [
-    { text: "  ships", className: "text-sky-300" },
-    { text: ": () ", className: "text-muted" },
-    { text: "=>", className: "text-accent" },
-    { text: " 'on time'", className: "text-emerald-300" },
-    { text: ",", className: "text-muted" },
-  ],
-  [{ text: "};", className: "text-muted" }],
-  [{ text: "", className: "" }],
-  [
-    { text: "await", className: "text-accent" },
-    { text: " developer.", className: "text-foreground" },
-    { text: "build", className: "text-sky-300" },
-    { text: "(", className: "text-muted" },
-    { text: "yourIdea", className: "text-foreground" },
-    { text: ");", className: "text-muted" },
-  ],
-];
+import { CODE_LINES, HERO } from "@/data/hero";
 
 /**
  * Hero illustration — a stylized editor window with staggered
- * line reveal and floating tech badges. No image assets needed.
+ * line reveal and floating badges. All content comes from data/hero.ts.
  */
 export function CodeWindow() {
   return (
@@ -79,7 +23,7 @@ export function CodeWindow() {
           <span className="h-3 w-3 rounded-full bg-[#28C840]/80" />
           <span className="ml-3 flex items-center gap-1.5 text-xs text-muted">
             <Braces className="h-3 w-3" aria-hidden />
-            developer.ts
+            {HERO.codeWindowFileName}
           </span>
           <span className="ml-auto flex items-center gap-1.5 text-xs text-muted">
             <GitBranch className="h-3 w-3" aria-hidden />
@@ -132,8 +76,12 @@ export function CodeWindow() {
             <Zap className="h-4 w-4" aria-hidden />
           </span>
           <div className="leading-tight">
-            <p className="text-xs font-semibold">Lighthouse</p>
-            <p className="text-xs text-emerald-400">98 / 100</p>
+            <p className="text-xs font-semibold">
+              {HERO.floatingBadges.lighthouse.label}
+            </p>
+            <p className="text-xs text-emerald-400">
+              {HERO.floatingBadges.lighthouse.value}
+            </p>
           </div>
         </div>
       </motion.div>
@@ -150,7 +98,10 @@ export function CodeWindow() {
             <span className="relative h-2.5 w-2.5 rounded-full bg-emerald-400" />
           </span>
           <p className="text-xs font-medium text-muted">
-            Deploy successful — <span className="text-foreground">2s ago</span>
+            {HERO.floatingBadges.deploy.label}{" "}
+            <span className="text-foreground">
+              {HERO.floatingBadges.deploy.value}
+            </span>
           </p>
         </div>
       </motion.div>

@@ -1,61 +1,63 @@
-import type { Project } from "@/types";
+import type { Project, SectionHeadingContent } from "@/types";
+import { PERSONAL } from "./personal";
+
+/**
+ * ─── PROJECTS SECTION ─────────────────────────────────────────────
+ * Real projects only. Add new entries as you ship them — set
+ * `featured: true` on the one that should take the large bento slot.
+ * `tone` picks the mockup color (primary | accent | violet | emerald).
+ */
+export const PROJECTS_HEADING: SectionHeadingContent = {
+  eyebrow: "Featured work",
+  title: "Projects I'm",
+  highlight: "proud of",
+  description:
+    "Work from my GitHub — built, polished and shipped by me. More landing on this grid as I ship them.",
+};
 
 export const PROJECTS: Project[] = [
   {
-    title: "Pulseboard",
-    tagline: "Analytics dashboard UI",
+    title: "Personal Portfolio",
+    tagline: "This website",
     description:
-      "The complete frontend for a real-time analytics SaaS — live event streams, funnels and retention cohorts rendered at 60fps from a WebSocket feed. Virtualized tables keep 100k-row datasets scrolling smoothly.",
-    tech: ["React", "TypeScript", "Tailwind", "Recharts", "WebSockets"],
-    github: "https://github.com/ahtishamshoukat/pulseboard",
-    demo: "https://pulseboard.demo",
-    caseStudy: "#",
+      "The site you're looking at — a fully responsive portfolio with a liquid-glass design system, scroll-driven animations and centralized, editable content. Built from scratch, no templates.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
+    features: [
+      "Liquid-glass UI with custom design tokens",
+      "Scroll-aware navbar and section reveals",
+      "All content driven by typed data files",
+    ],
+    status: "Live",
+    github: `${PERSONAL.github}/personal-portfolio`,
+    demo: "#top",
     featured: true,
     tone: "primary",
     bento: "md:col-span-3 md:row-span-2",
   },
   {
-    title: "Forma",
-    tagline: "Drag-and-drop form builder",
+    title: "Landing Page Collection",
+    tagline: "Responsive landing pages",
     description:
-      "Visual form builder with conditional logic, 40+ field types and pixel-perfect drag interactions. Used by 3k+ makers.",
-    tech: ["React", "TypeScript", "Zustand", "dnd-kit"],
-    github: "https://github.com/ahtishamshoukat/forma",
-    demo: "https://forma.demo",
+      "A growing set of landing pages built from designs — pixel-accurate, responsive and fast, covering product, agency and personal-brand layouts.",
+    tech: ["React", "Tailwind CSS", "HTML5", "CSS3"],
+    features: ["Mobile-first layouts", "Reusable section patterns"],
+    status: "Live",
+    github: `${PERSONAL.github}/landing-pages`,
+    demo: "#",
     tone: "accent",
     bento: "md:col-span-3",
   },
   {
-    title: "Shelfwise",
-    tagline: "E-commerce storefront",
+    title: "React Web Applications",
+    tagline: "App collection",
     description:
-      "Headless storefront for indie bookshops — instant search across 120k titles, optimistic cart and a 98 Lighthouse score.",
-    tech: ["Next.js", "TypeScript", "Tailwind", "Stripe"],
-    github: "https://github.com/ahtishamshoukat/shelfwise",
-    demo: "https://shelfwise.demo",
-    tone: "emerald",
-    bento: "md:col-span-3",
-  },
-  {
-    title: "usekit",
-    tagline: "React hooks library",
-    description:
-      "Forty zero-dependency React hooks — typed, tested and tree-shakeable. 1.2k GitHub stars.",
-    tech: ["React", "TypeScript", "Vitest"],
-    github: "https://github.com/ahtishamshoukat/usekit",
-    demo: "https://usekit.demo",
+      "Interactive apps built while sharpening my React skills — data fetching with TanStack Query, routing, forms and state management patterns.",
+    tech: ["React", "TypeScript", "React Router", "TanStack Query"],
+    features: ["API-driven UIs", "Client-side routing"],
+    status: "In Progress",
+    github: PERSONAL.github,
+    demo: "#",
     tone: "violet",
-    bento: "md:col-span-2",
-  },
-  {
-    title: "Nimbus UI",
-    tagline: "Open-source design system",
-    description:
-      "Accessible React component library with 38 primitives, full keyboard support and themeable design tokens.",
-    tech: ["React", "Radix", "Storybook", "Framer Motion"],
-    github: "https://github.com/ahtishamshoukat/nimbus-ui",
-    demo: "https://nimbus.demo",
-    tone: "accent",
-    bento: "md:col-span-4",
+    bento: "md:col-span-3",
   },
 ];

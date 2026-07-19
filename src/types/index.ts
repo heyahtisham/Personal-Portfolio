@@ -5,6 +5,22 @@ export interface NavItem {
   id: string;
 }
 
+export interface SectionHeadingContent {
+  eyebrow: string;
+  title: string;
+  highlight?: string;
+  description?: string;
+}
+
+export interface HeroBadge {
+  text: string;
+}
+
+export interface CodeToken {
+  text: string;
+  className: string;
+}
+
 export interface SocialLink {
   label: string;
   href: string;
@@ -38,6 +54,8 @@ export interface Project {
   tagline: string;
   description: string;
   tech: string[];
+  features: string[];
+  status: "Live" | "In Progress" | "Planned";
   github: string;
   demo: string;
   caseStudy?: string;

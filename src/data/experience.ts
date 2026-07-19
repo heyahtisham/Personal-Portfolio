@@ -1,45 +1,44 @@
-import type { TimelineItem } from "@/types";
+import type { SectionHeadingContent, TimelineItem } from "@/types";
+
+/**
+ * ─── EXPERIENCE SECTION ───────────────────────────────────────────
+ * Real experience only. Add new roles to the top of the array.
+ */
+export const EXPERIENCE_HEADING: SectionHeadingContent = {
+  eyebrow: "Experience",
+  title: "Where I",
+  highlight: "work",
+  description:
+    "My professional journey is just beginning — here's where I am and what I do.",
+};
 
 export const EXPERIENCE: TimelineItem[] = [
   {
-    period: "2024 — Present",
-    title: "Senior Frontend Developer",
-    org: "Neksio Tech",
-    orgInitials: "NT",
+    period: "Feb 2026 — Present",
+    title: "Frontend Web Developer",
+    org: "Neksio · Remote",
+    orgInitials: "NX",
     description:
-      "Leading the frontend guild across three product squads, owning the design system and performance budget.",
+      "Building and maintaining responsive web interfaces as part of a remote team.",
     points: [
-      "Cut LCP from 4.1s to 1.3s across the flagship SaaS product",
-      "Built a 40-component design system now used by 12 engineers",
-      "Mentored 4 junior developers to mid-level promotions",
+      "Turn designs into responsive, interactive React interfaces",
+      "Write typed, reusable components with TypeScript and Tailwind CSS",
+      "Collaborate remotely with designers and developers on real client work",
+      "Focus on performance, accessibility and clean, maintainable code",
     ],
-    tags: ["React", "TypeScript", "Next.js", "Design Systems"],
+    tags: ["React", "TypeScript", "Tailwind CSS", "Git"],
   },
   {
-    period: "2022 — 2024",
-    title: "Frontend Developer",
-    org: "Bytecraft Studio",
-    orgInitials: "BS",
+    period: "Jul 2025 — Feb 2026",
+    title: "Web Design & Development Trainee",
+    org: "Vocational Training Institute (VTI), Arifwala",
+    orgInitials: "VT",
     description:
-      "Built client-facing interfaces end-to-end — from Figma handoff to production deploys — for fintech and e-commerce clients.",
+      "Hands-on diploma program where I built my foundation — from semantic HTML and modern CSS to JavaScript and React.",
     points: [
-      "Delivered 14 client projects with a 100% on-time record",
-      "Rebuilt a checkout flow that lifted conversion by 34%",
-      "Introduced component testing that cut UI regressions by 80%",
+      "Built responsive websites from scratch as course projects",
+      "Learned modern JavaScript, Git workflows and deployment",
     ],
-    tags: ["React", "TypeScript", "Tailwind", "Framer Motion"],
-  },
-  {
-    period: "2021 — 2022",
-    title: "Frontend Developer",
-    org: "Freelance",
-    orgInitials: "FL",
-    description:
-      "Built marketing sites and dashboards for startups across four time zones, learning to communicate as sharply as I code.",
-    points: [
-      "Completed 20+ contracts with a 5.0 average client rating",
-      "Specialized in converting Figma designs into pixel-perfect React",
-    ],
-    tags: ["React", "Tailwind", "Figma"],
+    tags: ["HTML5", "CSS3", "JavaScript", "React"],
   },
 ];

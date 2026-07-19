@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Terminal } from "lucide-react";
-import { NAV_ITEMS, SITE } from "@/constants/site";
+import { PERSONAL } from "@/data/personal";
+import { NAV_ITEMS, NAVBAR } from "@/data/navigation";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { EASE } from "@/animations/variants";
@@ -35,8 +36,8 @@ export function Navbar() {
             <span className="glass-chip flex h-8 w-8 items-center justify-center rounded-full text-accent">
               <Terminal className="h-4 w-4" aria-hidden />
             </span>
-            {SITE.firstName}
-            <span className="hidden text-muted lg:inline">/ dev</span>
+            {PERSONAL.firstName}
+            <span className="hidden text-muted lg:inline">{NAVBAR.logoSuffix}</span>
           </a>
 
           {/* Desktop links */}
@@ -72,13 +73,13 @@ export function Navbar() {
 
           {/* Animated CTA */}
           <motion.a
-            href="#contact"
+            href={NAVBAR.ctaHref}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className="glass-primary glass-sheen group relative hidden items-center gap-1.5 overflow-hidden rounded-full px-5 py-2.5 text-sm font-semibold animate-pulse-glow md:inline-flex"
           >
-            Let&apos;s talk
+            {NAVBAR.ctaLabel}
             <ArrowRight
               className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
               aria-hidden
@@ -143,11 +144,11 @@ export function Navbar() {
                 ))}
                 <li className="mt-1">
                   <a
-                    href="#contact"
+                    href={NAVBAR.ctaHref}
                     onClick={() => setMenuOpen(false)}
                     className="glass-primary block rounded-2xl px-4 py-3 text-center font-medium"
                   >
-                    Let&apos;s talk
+                    {NAVBAR.ctaLabel}
                   </a>
                 </li>
               </ul>

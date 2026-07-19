@@ -1,80 +1,84 @@
 import {
   Layout,
-  Server,
-  Palette,
+  Package,
   Wrench,
+  Server,
   Rocket,
-  Users,
 } from "lucide-react";
-import type { SkillGroup } from "@/types";
+import type { SectionHeadingContent, SkillGroup } from "@/types";
+
+/**
+ * ─── SKILLS SECTION ───────────────────────────────────────────────
+ * Only real skills. Levels are honest self-assessments (0–100) —
+ * adjust them as you grow. `bento` controls the card's grid size.
+ */
+export const SKILLS_HEADING: SectionHeadingContent = {
+  eyebrow: "Skills",
+  title: "Tools I build",
+  highlight: "with",
+  description:
+    "An honest snapshot of my stack — strongest where I work daily, transparent about what I'm still learning.",
+};
 
 export const SKILL_GROUPS: SkillGroup[] = [
   {
     title: "Frontend",
     icon: Layout,
     description:
-      "Component-driven interfaces with obsessive attention to detail, motion and accessibility.",
+      "My core — component-driven, responsive interfaces with attention to detail and accessibility.",
     bento: "md:col-span-2 md:row-span-2",
     skills: [
-      { name: "React / Next.js", level: 95 },
-      { name: "TypeScript", level: 92 },
-      { name: "Tailwind CSS", level: 94 },
-      { name: "Framer Motion", level: 88 },
-      { name: "State Management", level: 90 },
+      { name: "React", level: 85 },
+      { name: "TypeScript", level: 78 },
+      { name: "JavaScript (ES6+)", level: 84 },
+      { name: "HTML5 & CSS3", level: 90 },
+      { name: "Tailwind CSS", level: 88 },
+      { name: "Responsive Design", level: 90 },
     ],
   },
   {
-    title: "Integration",
-    icon: Server,
-    description: "Wiring interfaces to any backend, cleanly.",
+    title: "Libraries",
+    icon: Package,
+    description: "The ecosystem I reach for in React projects.",
     bento: "md:col-span-2",
     skills: [
-      { name: "REST / GraphQL APIs", level: 88 },
-      { name: "Firebase / Supabase", level: 82 },
-      { name: "Node.js Basics", level: 74 },
-    ],
-  },
-  {
-    title: "Design",
-    icon: Palette,
-    description: "From wireframe to polished UI.",
-    bento: "md:col-span-1",
-    skills: [
-      { name: "Figma", level: 85 },
-      { name: "Design Systems", level: 88 },
+      { name: "Framer Motion", level: 75 },
+      { name: "React Router", level: 82 },
+      { name: "TanStack Query", level: 70 },
     ],
   },
   {
     title: "Tools",
     icon: Wrench,
-    description: "A sharp, boring, reliable toolchain.",
+    description: "My daily workflow.",
     bento: "md:col-span-1",
     skills: [
-      { name: "Git / GitHub", level: 93 },
-      { name: "Vite / Testing", level: 85 },
+      { name: "Git & GitHub", level: 82 },
+      { name: "VS Code", level: 90 },
+      { name: "Vite", level: 80 },
+      { name: "Canva", level: 75 },
     ],
   },
   {
     title: "Deployment",
     icon: Rocket,
-    description: "Ship early, ship safely, roll back in seconds.",
-    bento: "md:col-span-2",
+    description: "Shipping sites to production.",
+    bento: "md:col-span-1",
     skills: [
-      { name: "Vercel / Netlify", level: 92 },
-      { name: "GitHub Actions", level: 82 },
-      { name: "Web Performance / SEO", level: 88 },
+      { name: "Vercel", level: 82 },
+      { name: "Netlify", level: 78 },
     ],
   },
   {
-    title: "Soft Skills",
-    icon: Users,
+    title: "Backend — currently learning",
+    icon: Server,
     description:
-      "Clear writing, honest estimates, and calm communication with stakeholders.",
-    bento: "md:col-span-2",
+      "Expanding toward full-stack development. These are in progress, not mastered — and I'm honest about that.",
+    bento: "md:col-span-4",
     skills: [
-      { name: "Communication", level: 95 },
-      { name: "Product Thinking", level: 88 },
-      { name: "Mentoring", level: 82 },
+      { name: "Node.js", level: 45 },
+      { name: "Express", level: 40 },
+      { name: "MongoDB", level: 40 },
     ],
   },
 ];

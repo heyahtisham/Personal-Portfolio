@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ChevronDown, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { SITE } from "@/constants/site";
+import { HERO } from "@/data/hero";
 import { SOCIAL_LINKS } from "@/data/socials";
 import { blurReveal, fadeUp, staggerContainer } from "@/animations/variants";
 import { useMouseParallax } from "@/hooks/useMousePosition";
@@ -34,11 +34,11 @@ export function Hero() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                 </span>
-                {SITE.availability}
+                {HERO.availabilityBadge}
               </span>
               <span className="glass-chip inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-medium text-muted">
-                <Sparkles className="h-3 w-3 text-accent" aria-hidden />
-                {SITE.yearsExperience}+ years of experience
+                <Briefcase className="h-3 w-3 text-accent" aria-hidden />
+                {HERO.secondaryBadge}
               </span>
             </motion.div>
 
@@ -46,25 +46,23 @@ export function Hero() {
               variants={blurReveal}
               className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl xl:text-[68px]"
             >
-              Building digital products that feel{" "}
+              {HERO.headline}{" "}
               <span className="animate-gradient-x text-gradient">
-                effortless
+                {HERO.headlineHighlight}
               </span>
               .
             </motion.h1>
 
             <motion.p variants={fadeUp} className="max-w-lg text-base text-muted md:text-lg">
-              I&apos;m {SITE.name}, a {SITE.role.toLowerCase()} who turns complex
-              problems into fast, accessible, beautifully-crafted web
-              experiences — from first wireframe to production deploy.
+              {HERO.intro}
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
-              <Button href="#projects" withArrow>
-                View my work
+              <Button href={HERO.primaryCta.href} withArrow>
+                {HERO.primaryCta.label}
               </Button>
-              <Button href="#contact" variant="secondary">
-                Get in touch
+              <Button href={HERO.secondaryCta.href} variant="secondary">
+                {HERO.secondaryCta.label}
               </Button>
             </motion.div>
 

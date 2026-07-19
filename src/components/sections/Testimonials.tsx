@@ -1,8 +1,15 @@
+import { motion } from "framer-motion";
 import { MessageSquareQuote, Star } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Marquee } from "@/components/ui/Marquee";
-import { TESTIMONIALS } from "@/data/testimonials";
+import { Button } from "@/components/ui/Button";
+import {
+  TESTIMONIALS,
+  TESTIMONIALS_EMPTY_STATE,
+  TESTIMONIALS_HEADING,
+} from "@/data/testimonials";
+import { fadeUp, VIEWPORT } from "@/animations/variants";
 import type { Testimonial } from "@/types";
 
 function TestimonialCard({ quote, name, role, company, initials, stars }: Testimonial) {
@@ -34,32 +41,59 @@ function TestimonialCard({ quote, name, role, company, initials, stars }: Testim
   );
 }
 
+/** Elegant placeholder shown until real testimonials exist. */
+function ComingSoon() {
+  return (
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={VIEWPORT}
+      className="card-base mx-auto flex max-w-xl flex-col items-center gap-5 p-10 text-center md:p-12"
+    >
+      <span className="glass-chip flex h-14 w-14 items-center justify-center rounded-full text-accent">
+        <MessageSquareQuote className="h-6 w-6" aria-hidden />
+      </span>
+      <h3 className="text-xl font-bold tracking-tight">
+        {TESTIMONIALS_EMPTY_STATE.title}
+      </h3>
+      <p className="max-w-sm text-sm leading-relaxed text-muted">
+        {TESTIMONIALS_EMPTY_STATE.text}
+      </p>
+      <Button href={TESTIMONIALS_EMPTY_STATE.ctaHref} withArrow>
+        {TESTIMONIALS_EMPTY_STATE.ctaLabel}
+      </Button>
+    </motion.div>
+  );
+}
+
 export function Testimonials() {
-  const firstRow = TESTIMONIALS.slice(0, 3);
-  const secondRow = TESTIMONIALS.slice(3);
+  const hasTestimonials = TESTIMONIALS.length > 0;
+  const firstRow = TESTIMONIALS.slice(0, Math.ceil(TESTIMONIALS.length / 2));
+  const secondRow = TESTIMONIALS.slice(Math.ceil(TESTIMONIALS.length / 2));
 
   return (
     <Section id="testimonials" className="overflow-hidden">
-      <SectionHeading
-        eyebrow="Testimonials"
-        icon={MessageSquareQuote}
-        title="What clients"
-        highlight="say"
-        description="Kind words from founders, product leads and engineering managers I've shipped with."
-      />
+      <SectionHeading icon={MessageSquareQuote} {...TESTIMONIALS_HEADING} />
 
-      <div className="space-y-6">
-        <Marquee slow>
-          {firstRow.map((t) => (
-            <TestimonialCard key={t.name} {...t} />
-          ))}
-        </Marquee>
-        <Marquee slow reverse>
-          {secondRow.map((t) => (
-            <TestimonialCard key={t.name} {...t} />
-          ))}
-        </Marquee>
-      </div>
+      {hasTestimonials ? (
+        <div className="space-y-6">
+          <Marquee slow>
+            {firstRow.map((t) => (
+              <TestimonialCard key={t.name} {...t} />
+            ))}
+          </Marquee>
+          {secondRow.length > 0 && (
+            <Marquee slow reverse>
+              {secondRow.map((t) => (
+                <TestimonialCard key={t.name} {...t} />
+              ))}
+            </Marquee>
+          )}
+        </div>
+      ) : (
+        <ComingSoon />
+      )}
     </Section>
   );
 }

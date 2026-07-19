@@ -3,7 +3,7 @@ import { Layers } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Marquee } from "@/components/ui/Marquee";
-import { TECH_CATEGORIES } from "@/data/techstack";
+import { TECH_CATEGORIES, TECHSTACK_HEADING } from "@/data/techstack";
 import { fadeUp, staggerContainer, VIEWPORT } from "@/animations/variants";
 
 const ALL_TECH = TECH_CATEGORIES.flatMap((category) => category.items);
@@ -11,13 +11,7 @@ const ALL_TECH = TECH_CATEGORIES.flatMap((category) => category.items);
 export function TechStack() {
   return (
     <Section id="stack" tinted className="overflow-hidden">
-      <SectionHeading
-        eyebrow="Tech stack"
-        icon={Layers}
-        title="The stack behind the"
-        highlight="work"
-        description="Chosen deliberately, learned deeply — boring where boring wins, modern where it matters."
-      />
+      <SectionHeading icon={Layers} {...TECHSTACK_HEADING} />
 
       {/* Logo cloud marquee */}
       <Marquee className="mb-14">

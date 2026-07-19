@@ -4,20 +4,14 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SkillBar } from "@/components/ui/SkillBar";
 import { TiltCard } from "@/components/ui/TiltCard";
-import { SKILL_GROUPS } from "@/data/skills";
+import { SKILL_GROUPS, SKILLS_HEADING } from "@/data/skills";
 import { fadeUp, staggerContainer, VIEWPORT } from "@/animations/variants";
 import { cn } from "@/lib/cn";
 
 export function Skills() {
   return (
     <Section id="skills">
-      <SectionHeading
-        eyebrow="Skills"
-        icon={Cpu}
-        title="Tools I've"
-        highlight="mastered"
-        description="A focused stack, honed over five years — deep in the things that matter, honest about the rest."
-      />
+      <SectionHeading icon={Cpu} {...SKILLS_HEADING} />
 
       <motion.div
         variants={staggerContainer(0.08)}

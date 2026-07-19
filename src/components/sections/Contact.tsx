@@ -4,7 +4,8 @@ import { Clock, Mail, MapPin, Send } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { SITE } from "@/constants/site";
+import { PERSONAL } from "@/data/personal";
+import { CONTACT, CONTACT_HEADING } from "@/data/contact";
 import { SOCIAL_LINKS } from "@/data/socials";
 import {
   fadeUp,
@@ -32,11 +33,9 @@ function MapIllustration() {
           backgroundSize: "18px 18px",
         }}
       />
-      {/* Stylized roads */}
       <div className="absolute left-0 top-1/2 h-px w-full bg-white/10" />
       <div className="absolute left-1/3 top-0 h-full w-px bg-white/10" />
       <div className="absolute left-2/3 top-0 h-full w-px rotate-12 bg-white/[0.07]" />
-      {/* Pin */}
       <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <span className="absolute inset-0 -m-3 animate-ping rounded-full bg-primary/30" />
         <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-primary shadow-glow">
@@ -52,20 +51,16 @@ export function Contact() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Project inquiry from ${form.name}`);
+    const subject = encodeURIComponent(
+      `${CONTACT.form.subjectPrefix} ${form.name}`
+    );
     const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${PERSONAL.email}?subject=${subject}&body=${body}`;
   };
 
   return (
     <Section id="contact" tinted>
-      <SectionHeading
-        eyebrow="Contact"
-        icon={Send}
-        title="Let's build something"
-        highlight="together"
-        description="Tell me about your project — I reply to every message within 24 hours."
-      />
+      <SectionHeading icon={Send} {...CONTACT_HEADING} />
 
       <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1.15fr_0.85fr]">
         {/* Form */}
@@ -80,14 +75,14 @@ export function Contact() {
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="contact-name" className="mb-2 block text-sm font-medium">
-                Name
+                {CONTACT.form.nameLabel}
               </label>
               <input
                 id="contact-name"
                 type="text"
                 required
                 autoComplete="name"
-                placeholder="Jane Smith"
+                placeholder={CONTACT.form.namePlaceholder}
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className={INPUT_CLASSES}
@@ -95,14 +90,14 @@ export function Contact() {
             </div>
             <div>
               <label htmlFor="contact-email" className="mb-2 block text-sm font-medium">
-                Email
+                {CONTACT.form.emailLabel}
               </label>
               <input
                 id="contact-email"
                 type="email"
                 required
                 autoComplete="email"
-                placeholder="jane@company.com"
+                placeholder={CONTACT.form.emailPlaceholder}
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className={INPUT_CLASSES}
@@ -112,13 +107,13 @@ export function Contact() {
 
           <div className="flex flex-1 flex-col">
             <label htmlFor="contact-message" className="mb-2 block text-sm font-medium">
-              Project details
+              {CONTACT.form.messageLabel}
             </label>
             <textarea
               id="contact-message"
               required
               rows={6}
-              placeholder="What are you building? Timeline? Budget range helps too."
+              placeholder={CONTACT.form.messagePlaceholder}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               className={`${INPUT_CLASSES} flex-1 resize-none`}
@@ -127,7 +122,7 @@ export function Contact() {
 
           <div>
             <Button withArrow className="w-full sm:w-auto">
-              Send message
+              {CONTACT.form.submitLabel}
             </Button>
           </div>
         </motion.form>
@@ -149,15 +144,15 @@ export function Contact() {
           >
             <motion.a
               variants={fadeUp}
-              href={`mailto:${SITE.email}`}
+              href={`mailto:${PERSONAL.email}`}
               className="card-base group flex items-center gap-4 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-glow hover:shadow-glow-sm"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary/15 text-accent ring-1 ring-primary/25 transition-transform duration-300 group-hover:scale-110">
                 <Mail className="h-5 w-5" aria-hidden />
               </span>
               <div className="min-w-0 leading-tight">
-                <p className="text-sm font-semibold">Email me</p>
-                <p className="truncate text-sm text-muted">{SITE.email}</p>
+                <p className="text-sm font-semibold">{CONTACT.emailCard.title}</p>
+                <p className="truncate text-sm text-muted">{CONTACT.emailCard.value}</p>
               </div>
             </motion.a>
 
@@ -167,8 +162,8 @@ export function Contact() {
                   <MapPin className="h-5 w-5" aria-hidden />
                 </span>
                 <div className="leading-tight">
-                  <p className="text-sm font-semibold">{SITE.location}</p>
-                  <p className="text-sm text-muted">{SITE.timezone}</p>
+                  <p className="text-sm font-semibold">{CONTACT.locationCard.title}</p>
+                  <p className="text-sm text-muted">{CONTACT.locationCard.subtitle}</p>
                 </div>
               </div>
               <MapIllustration />
@@ -182,8 +177,8 @@ export function Contact() {
                 <Clock className="h-5 w-5" aria-hidden />
               </span>
               <div className="leading-tight">
-                <p className="text-sm font-semibold">{SITE.availability}</p>
-                <p className="text-sm text-muted">Booking for August 2026</p>
+                <p className="text-sm font-semibold">{CONTACT.availabilityCard.title}</p>
+                <p className="text-sm text-muted">{CONTACT.availabilityCard.subtitle}</p>
               </div>
             </motion.div>
 

@@ -1,10 +1,15 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
-import { SITE } from "@/constants/site";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { PERSONAL } from "./personal";
 import type { SocialLink } from "@/types";
 
+/**
+ * ─── SOCIAL LINKS ─────────────────────────────────────────────────
+ * Shown in the hero, footer and contact section.
+ * URLs come from personal.ts — edit them there.
+ */
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "GitHub", href: SITE.github, icon: Github },
-  { label: "LinkedIn", href: SITE.linkedin, icon: Linkedin },
-  { label: "Twitter", href: SITE.twitter, icon: Twitter },
-  { label: "Email", href: `mailto:${SITE.email}`, icon: Mail },
+  { label: "GitHub", href: PERSONAL.github, icon: Github },
+  { label: "LinkedIn", href: PERSONAL.linkedin, icon: Linkedin },
+  { label: "Email", href: `mailto:${PERSONAL.email}`, icon: Mail },
+  { label: "Resume", href: PERSONAL.resumeUrl, icon: FileText },
 ];

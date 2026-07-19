@@ -2,19 +2,13 @@ import { motion } from "framer-motion";
 import { Workflow } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { PROCESS_STEPS } from "@/data/process";
+import { PROCESS_HEADING, PROCESS_STEPS } from "@/data/process";
 import { fadeUp, staggerContainer, VIEWPORT, EASE } from "@/animations/variants";
 
 export function Process() {
   return (
     <Section id="process" tinted>
-      <SectionHeading
-        eyebrow="Process"
-        icon={Workflow}
-        title="From idea to"
-        highlight="launch"
-        description="A predictable, transparent process — you always know what's happening and what comes next."
-      />
+      <SectionHeading icon={Workflow} {...PROCESS_HEADING} />
 
       <div className="relative mx-auto max-w-5xl">
         {/* Connector line, horizontal on desktop */}

@@ -1,65 +1,96 @@
 import {
   Globe,
-  Figma,
-  MousePointerClick,
   Atom,
+  Smartphone,
+  MousePointerClick,
+  UserRound,
+  RefreshCw,
+  Figma,
   Gauge,
-  ShieldCheck,
 } from "lucide-react";
-import type { Service } from "@/types";
+import type { SectionHeadingContent, Service } from "@/types";
+
+/**
+ * ─── SERVICES SECTION ─────────────────────────────────────────────
+ * Services you actually offer. `bento` controls card size in the
+ * 4-column grid; exactly one card should be `highlighted`.
+ */
+export const SERVICES_HEADING: SectionHeadingContent = {
+  eyebrow: "Services",
+  title: "How I can",
+  highlight: "help",
+  description:
+    "Clear scope, honest timelines and careful execution — focused on what I do best: the frontend.",
+};
 
 export const SERVICES: Service[] = [
   {
-    title: "Website Development",
+    title: "Frontend Web Development",
     description:
-      "Complete websites built from scratch — responsive, accessible and fast on every device. You bring the idea; I ship the interface.",
+      "Complete website frontends built from scratch — responsive, accessible and fast on every device. You bring the idea or design; I build the interface.",
     features: [
-      "React & Next.js builds",
-      "Headless CMS integration",
-      "SEO and analytics wired in from day one",
+      "React, TypeScript & Tailwind builds",
+      "Semantic, accessible markup",
+      "Deployed on Vercel or Netlify",
     ],
     icon: Globe,
     bento: "md:col-span-2 md:row-span-2",
     highlighted: true,
   },
   {
-    title: "UI Design",
+    title: "React Development",
     description:
-      "Interfaces that feel inevitable — clean hierarchy, honest spacing, no decoration for its own sake.",
-    features: ["Figma design systems", "Interactive prototypes"],
-    icon: Figma,
+      "Component-based apps with clean structure — routing, data fetching and state handled properly.",
+    features: ["Reusable component patterns", "TanStack Query & React Router"],
+    icon: Atom,
+    bento: "md:col-span-2",
+  },
+  {
+    title: "Responsive Websites",
+    description:
+      "Mobile-first layouts that look right on every screen, from small phones to wide desktops.",
+    features: ["Fluid layouts & breakpoints", "Cross-browser testing"],
+    icon: Smartphone,
     bento: "md:col-span-2",
   },
   {
     title: "Landing Pages",
     description:
-      "High-converting pages that load in under a second and read like they were written by a human.",
-    features: ["A/B-test ready", "Copy support included"],
+      "Fast, focused pages that load quickly and guide visitors to act.",
+    features: ["Speed-first builds"],
     icon: MousePointerClick,
+    bento: "md:col-span-1",
+  },
+  {
+    title: "Portfolio Websites",
+    description:
+      "Personal sites that present your work with the polish it deserves.",
+    features: ["Custom design & motion"],
+    icon: UserRound,
+    bento: "md:col-span-1",
+  },
+  {
+    title: "UI Implementation",
+    description:
+      "Pixel-accurate conversion of Figma or design files into living, interactive interfaces.",
+    features: ["Design-faithful spacing & type", "Smooth micro-interactions"],
+    icon: Figma,
     bento: "md:col-span-2",
   },
   {
-    title: "React Development",
+    title: "Website Redesign",
     description:
-      "Component architecture that scales — typed, tested and documented.",
-    features: ["Legacy migration", "Performance profiling"],
-    icon: Atom,
+      "Modernize an outdated site — new look, better structure, same content where it counts.",
+    features: ["Modern stack migration", "Improved mobile experience"],
+    icon: RefreshCw,
     bento: "md:col-span-2",
   },
   {
     title: "Performance Optimization",
     description:
-      "I hunt slow renders, heavy bundles and layout shifts until Lighthouse turns green.",
-    features: ["Core Web Vitals audits", "Bundle-size budgets"],
+      "Faster loads and smoother interactions — image optimization, code splitting and Lighthouse-guided fixes.",
+    features: ["Core Web Vitals improvements", "Bundle-size cleanup"],
     icon: Gauge,
-    bento: "md:col-span-1",
-  },
-  {
-    title: "Maintenance",
-    description:
-      "Ongoing care for shipped products — updates, monitoring and small features on retainer.",
-    features: ["Monthly reports", "Priority fixes"],
-    icon: ShieldCheck,
-    bento: "md:col-span-1",
+    bento: "md:col-span-2",
   },
 ];

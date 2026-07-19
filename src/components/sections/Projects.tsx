@@ -1,23 +1,30 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, FileText, FolderGit2, Github, Star } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  FolderGit2,
+  Github,
+  Star,
+} from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TiltCard } from "@/components/ui/TiltCard";
-import { PROJECTS } from "@/data/projects";
+import { PROJECTS, PROJECTS_HEADING } from "@/data/projects";
 import { fadeUp, staggerContainer, VIEWPORT } from "@/animations/variants";
 import { cn } from "@/lib/cn";
 import { ProjectVisual } from "./projects/ProjectVisual";
+import type { Project } from "@/types";
+
+const STATUS_STYLES: Record<Project["status"], string> = {
+  Live: "text-emerald-400",
+  "In Progress": "text-amber-400",
+  Planned: "text-muted",
+};
 
 export function Projects() {
   return (
     <Section id="projects" tinted>
-      <SectionHeading
-        eyebrow="Featured work"
-        icon={FolderGit2}
-        title="Projects I'm"
-        highlight="proud of"
-        description="Real products with real users — each one shipped end-to-end, from first sketch to production."
-      />
+      <SectionHeading icon={FolderGit2} {...PROJECTS_HEADING} />
 
       <motion.div
         variants={staggerContainer(0.1)}
@@ -39,17 +46,39 @@ export function Projects() {
               <ProjectVisual tone={project.tone} large={project.featured} />
 
               <div className="mt-6 flex flex-1 flex-col">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                  {project.tagline}
-                </p>
+                <div className="flex items-center gap-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                    {project.tagline}
+                  </p>
+                  <span
+                    className={cn(
+                      "glass-chip inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-medium",
+                      STATUS_STYLES[project.status]
+                    )}
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden />
+                    {project.status}
+                  </span>
+                </div>
                 <h3 className="mt-1.5 text-xl font-bold tracking-tight md:text-2xl">
                   {project.title}
                 </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                <p className="mt-3 text-sm leading-relaxed text-muted">
                   {project.description}
                 </p>
 
-                <ul className="mt-5 flex flex-wrap gap-2" aria-label="Technologies used">
+                {project.featured && project.features.length > 0 && (
+                  <ul className="mt-4 space-y-2">
+                    {project.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-2 text-sm text-muted">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <ul className="mt-5 flex flex-wrap gap-2 pt-1" aria-label="Technologies used">
                   {project.tech.map((tech) => (
                     <li
                       key={tech}
@@ -60,7 +89,7 @@ export function Projects() {
                   ))}
                 </ul>
 
-                <div className="mt-6 flex items-center gap-4 border-t border-subtle pt-5 text-sm">
+                <div className="mt-auto flex items-center gap-4 border-t border-subtle pt-5 text-sm">
                   <a
                     href={project.github}
                     target="_blank"
@@ -82,15 +111,6 @@ export function Projects() {
                     />
                     Live demo
                   </a>
-                  {project.caseStudy && (
-                    <a
-                      href={project.caseStudy}
-                      className="ml-auto inline-flex items-center gap-1.5 font-medium text-accent transition-colors hover:text-foreground"
-                    >
-                      <FileText className="h-4 w-4" aria-hidden />
-                      Case study
-                    </a>
-                  )}
                 </div>
               </div>
             </TiltCard>
