@@ -11,9 +11,10 @@ import {
 import type { ProjectTone } from "@/types";
 import { cn } from "@/lib/cn";
 
-/** Virtual desktop viewport the live sites render at (16:10). */
-const VIRTUAL_W = 1440;
-const VIRTUAL_H = 900;
+/** Virtual browser viewport the live sites render at (kept ~16:10). */
+const VIRTUAL_W_DESKTOP = 1440;
+const VIRTUAL_W_MOBILE = 1180; // slightly narrower → larger, more legible text
+const ASPECT = 1.6; // 16:10
 
 const TONE_STYLES: Record<
   ProjectTone,
@@ -118,13 +119,15 @@ function MacChrome({ url }: { url?: string }) {
 /**
  * Project thumbnail in a macOS-style browser frame.
  *
- * Desktop: the live site renders at a fixed 1440×900 viewport and is
- * scaled to fit the card width exactly — a true miniature of the
- * desktop site, never zoomed or cropped. Click to interact; control
- * returns to the page when the cursor leaves.
+ * The live site renders at a fixed virtual viewport, scaled to fit the
+ * card width exactly — a true miniature, never zoomed or cropped.
  *
- * Mobile: the lightweight screenshot is shown instead of an iframe —
- * no live-embed cost on phones, no scroll lag.
+ * Desktop: click to interact; control returns to the page when the
+ * cursor leaves, so page scroll is never hijacked.
+ *
+ * Mobile: the live preview stays non-interactive (so a touch never gets
+ * trapped inside the embed and page scroll stays perfectly smooth) and
+ * the whole frame becomes a tap-to-open link to the real site.
  */
 export function ProjectVisual({ tone, large, preview, image, alt }: ProjectVisualProps) {
   const styles = TONE_STYLES[tone];
@@ -136,7 +139,10 @@ export function ProjectVisual({ tone, large, preview, image, alt }: ProjectVisua
   const nearViewport = useInView(frameRef, { once: true, margin: "300px" });
   const isDesktop = useIsDesktop();
 
-  const showLive = Boolean(preview) && isDesktop;
+  const virtualW = isDesktop ? VIRTUAL_W_DESKTOP : VIRTUAL_W_MOBILE;
+  const virtualH = Math.round(virtualW / ASPECT);
+
+  const showLive = Boolean(preview);
   const showImage = !showLive && Boolean(image) && !imageFailed;
   const isMedia = showLive || showImage;
 
@@ -146,11 +152,11 @@ export function ProjectVisual({ tone, large, preview, image, alt }: ProjectVisua
     const el = viewportRef.current;
     if (!el) return;
     const ro = new ResizeObserver(([entry]) => {
-      setScale(entry.contentRect.width / VIRTUAL_W);
+      setScale(entry.contentRect.width / virtualW);
     });
     ro.observe(el);
     return () => ro.disconnect();
-  }, [showLive]);
+  }, [showLive, virtualW]);
 
   return (
     <div
@@ -166,7 +172,7 @@ export function ProjectVisual({ tone, large, preview, image, alt }: ProjectVisua
       <MacChrome url={preview} />
 
       {showLive ? (
-        /* Live desktop miniature — fixed 1440×900 viewport, scaled to fit */
+        /* Live miniature — fixed virtual viewport, scaled to fit exactly */
         <div
           ref={viewportRef}
           className="relative aspect-[16/10] overflow-hidden"
@@ -187,19 +193,20 @@ export function ProjectVisual({ tone, large, preview, image, alt }: ProjectVisua
               src={preview}
               title={alt ?? "Live website preview"}
               loading="lazy"
-              width={VIRTUAL_W}
-              height={VIRTUAL_H}
+              width={virtualW}
+              height={virtualH}
               style={{ transform: `scale(${scale})` }}
               className={cn(
                 "relative origin-top-left border-0 bg-deep",
-                interactive ? "pointer-events-auto" : "pointer-events-none"
+                // Interactive only on desktop after a click; never on
+                // touch, where it would trap page scrolling.
+                isDesktop && interactive ? "pointer-events-auto" : "pointer-events-none"
               )}
             />
           )}
 
-          {/* Click-to-interact shield — keeps page scroll smooth until
-              the visitor deliberately engages with the embedded site */}
-          {!interactive && (
+          {/* Desktop: click-to-interact shield */}
+          {isDesktop && !interactive && (
             <button
               type="button"
               onClick={() => setInteractive(true)}
@@ -211,6 +218,22 @@ export function ProjectVisual({ tone, large, preview, image, alt }: ProjectVisua
                 Click to browse this site
               </span>
             </button>
+          )}
+
+          {/* Mobile: whole frame is a tap-to-open link (no scroll trap) */}
+          {!isDesktop && preview && (
+            <a
+              href={preview}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Open ${alt ?? "site"} in a new tab`}
+              className="absolute inset-0 z-20 flex items-end justify-center pb-3"
+            >
+              <span className="glass-chip flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[11px] font-medium text-foreground shadow-glow-sm">
+                <ExternalLink className="h-3 w-3 text-accent" aria-hidden />
+                Tap to open live site
+              </span>
+            </a>
           )}
         </div>
       ) : showImage ? (
