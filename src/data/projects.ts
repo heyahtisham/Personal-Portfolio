@@ -21,14 +21,16 @@ export const PROJECTS_HEADING: SectionHeadingContent = {
 export const PROJECTS: Project[] = [
   {
     title: "Personal Portfolio",
-    tagline: "This website",
+    tagline: "Crafting Digital Experiences",
     description:
-      "The site you're looking at — a fully responsive portfolio with a liquid-glass design system, scroll-driven animations and centralized, editable content. Built from scratch, no templates.",
+      "A modern, fully responsive portfolio designed and developed from scratch to showcase my work, skills, and experience. Built with a custom design system, smooth animations, and a strong focus on performance, accessibility, and maintainable code.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
     features: [
-      "Liquid-glass UI with custom design tokens",
-      "Scroll-aware navbar and section reveals",
-      "All content driven by typed data files",
+      "Custom glassmorphism design system",
+      "Smooth scroll-driven animations",
+      "Fully responsive across all devices",
+      "Centralized, type-safe content management",
+      "Optimized performance and accessibility",
     ],
     status: "Live",
     preview: "https://ahtishamshoukat.vercel.app/",
@@ -40,19 +42,25 @@ export const PROJECTS: Project[] = [
     bento: "md:col-span-6",
   },
   {
-    title: "Landing Page Collection",
-    tagline: "Responsive landing pages",
+    title: "Neksio – Conversational AI Platform",
+    tagline: "Modern AI Platform",
     description:
-      "A growing set of landing pages built from designs — pixel-accurate, responsive and fast, covering product, agency and personal-brand layouts.",
-    tech: ["React", "Tailwind CSS", "HTML5", "CSS3"],
-    features: ["Mobile-first layouts", "Reusable section patterns"],
+      "Contributed to the frontend development of a production-ready AI platform that enables businesses to automate customer support, sales, and engagement across multiple communication channels. Focused on building responsive interfaces, reusable UI components, and delivering a fast, accessible user experience.",
+    tech: ["React", "Tailwind CSS", "TypeScript", "Next.js", "REST APIs"],
+    features: [
+      "AI-powered SaaS platform",
+      "Multi-platform messaging interface",
+      "Clean and reusable React components",
+      "Optimized performance and accessibility",
+      "Production-ready frontend architecture",
+    ],
     status: "Live",
     preview: "https://neksio.com/",
     image: "/projects/landing-page.png",
     github: `${GITHUB}/landing-pages`,
     demo: "https://neksio.com/",
     tone: "accent",
-    bento: "md:col-span-3",
+    bento: "md:col-span-6",
   },
   {
     title: "React Web Applications",
@@ -67,6 +75,6 @@ export const PROJECTS: Project[] = [
     github: GITHUB,
     demo: "https://ahtishamshoukat.vercel.app/",
     tone: "violet",
-    bento: "md:col-span-3",
+    bento: "md:col-span-6",
   },
 ];

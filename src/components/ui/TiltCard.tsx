@@ -7,13 +7,15 @@ interface TiltCardProps {
   className?: string;
   /** Max tilt in degrees */
   intensity?: number;
+  /** Disable tilt and lift — hover only zooms the card slightly. */
+  zoomOnly?: boolean;
 }
 
 /**
  * Card with pointer-tracked 3D tilt and a cursor-following border glow.
  * Tilt is intentionally subtle — furniture, not a fairground ride.
  */
-export function TiltCard({ children, className, intensity = 4 }: TiltCardProps) {
+export function TiltCard({ children, className, intensity = 4, zoomOnly }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const px = useMotionValue(0.5);
   const py = useMotionValue(0.5);
@@ -46,8 +48,12 @@ export function TiltCard({ children, className, intensity = 4 }: TiltCardProps) 
       ref={ref}
       onMouseMove={onMouseMove}
       onMouseLeave={reset}
-      style={{ rotateX, rotateY, transformPerspective: 1000, willChange: "transform" }}
-      whileHover={{ y: -4 }}
+      style={
+        zoomOnly
+          ? { willChange: "transform" }
+          : { rotateX, rotateY, transformPerspective: 1000, willChange: "transform" }
+      }
+      whileHover={zoomOnly ? { scale: 1.015 } : { y: -4 }}
       transition={{ duration: 0.3 }}
       className={cn(
         "group/tilt relative overflow-hidden card-base transition-shadow duration-300 hover:shadow-lift",

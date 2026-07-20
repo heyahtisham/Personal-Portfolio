@@ -4,7 +4,6 @@ import {
   Check,
   FolderGit2,
   Github,
-  Star,
 } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -36,35 +35,19 @@ export function Projects() {
         {PROJECTS.map((project) => (
           <motion.div key={project.title} variants={fadeUp} className={cn(project.bento)}>
             <TiltCard
-              className={cn(
-                "h-full p-6 md:p-7",
-                project.featured
-                  ? "grid gap-6 md:grid-cols-[1.05fr_1fr] md:items-center"
-                  : "flex flex-col"
-              )}
-              intensity={2}
+              className="grid h-full gap-6 p-6 md:grid-cols-[1.05fr_1fr] md:items-center md:p-7"
+              zoomOnly
             >
-              {project.featured && (
-                <span className="absolute right-6 top-6 z-10 inline-flex items-center gap-1.5 rounded-full border border-glow bg-primary/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-accent">
-                  <Star className="h-3 w-3 fill-accent" aria-hidden />
-                  Featured
-                </span>
-              )}
 
               <ProjectVisual
                 tone={project.tone}
-                large={project.featured}
+                large
                 preview={project.preview}
                 image={project.image}
                 alt={`${project.title} preview`}
               />
 
-              <div
-                className={cn(
-                  "flex flex-col",
-                  project.featured ? "mt-2 md:mt-0" : "mt-6 flex-1"
-                )}
-              >
+              <div className="mt-2 flex flex-col md:mt-0">
                 <div className="flex items-center gap-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                     {project.tagline}
@@ -86,7 +69,7 @@ export function Projects() {
                   {project.description}
                 </p>
 
-                {project.featured && project.features.length > 0 && (
+                {project.features.length > 0 && (
                   <ul className="mt-4 space-y-2">
                     {project.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2 text-sm text-muted">
