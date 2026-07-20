@@ -1,6 +1,9 @@
 import type { Project, SectionHeadingContent } from "@/types";
 import { PERSONAL } from "./personal";
 
+/** GitHub profile URL without a trailing slash, for building repo links. */
+const GITHUB = PERSONAL.github.replace(/\/+$/, "");
+
 /**
  * ─── PROJECTS SECTION ─────────────────────────────────────────────
  * Real projects only. Add new entries as you ship them — set
@@ -9,10 +12,10 @@ import { PERSONAL } from "./personal";
  */
 export const PROJECTS_HEADING: SectionHeadingContent = {
   eyebrow: "Featured work",
-  title: "Projects I'm",
-  highlight: "proud of",
+  title: "Projects That Turn Ideas Into",
+  highlight: "Products",
   description:
-    "Work from my GitHub — built, polished and shipped by me. More landing on this grid as I ship them.",
+    "Each project is designed, developed, and deployed with a focus on performance, usability, and clean code.",
 };
 
 export const PROJECTS: Project[] = [
@@ -28,8 +31,10 @@ export const PROJECTS: Project[] = [
       "All content driven by typed data files",
     ],
     status: "Live",
-    github: `${PERSONAL.github}/personal-portfolio`,
-    demo: "#top",
+    preview: "https://ahtishamshoukat.vercel.app/",
+    image: "/projects/personal-portfolio.png",
+    github: `${GITHUB}/personal-portfolio`,
+    demo: "https://ahtishamshoukat.vercel.app/",
     featured: true,
     tone: "primary",
     bento: "md:col-span-6",
@@ -42,8 +47,10 @@ export const PROJECTS: Project[] = [
     tech: ["React", "Tailwind CSS", "HTML5", "CSS3"],
     features: ["Mobile-first layouts", "Reusable section patterns"],
     status: "Live",
-    github: `${PERSONAL.github}/landing-pages`,
-    demo: "#",
+    preview: "https://neksio.com/",
+    image: "/projects/landing-page.png",
+    github: `${GITHUB}/landing-pages`,
+    demo: "https://neksio.com/",
     tone: "accent",
     bento: "md:col-span-3",
   },
@@ -55,8 +62,10 @@ export const PROJECTS: Project[] = [
     tech: ["React", "TypeScript", "React Router", "TanStack Query"],
     features: ["API-driven UIs", "Client-side routing"],
     status: "In Progress",
-    github: PERSONAL.github,
-    demo: "#",
+    preview: "https://ahtishamshoukat.vercel.app/",
+    image: "/projects/personal-portfolio.png",
+    github: GITHUB,
+    demo: "https://ahtishamshoukat.vercel.app/",
     tone: "violet",
     bento: "md:col-span-3",
   },

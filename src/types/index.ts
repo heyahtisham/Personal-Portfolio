@@ -56,6 +56,13 @@ export interface Project {
   tech: string[];
   features: string[];
   status: "Live" | "In Progress" | "Planned";
+  /** Live site URL to embed as a scaled preview in the thumbnail.
+      Takes priority over `image`. The site must allow iframing. */
+  preview?: string;
+  /** Screenshot path under public/, e.g. "/projects/personal-portfolio.png".
+      Shown while the live preview loads, or as the thumbnail when no
+      `preview` is set. Falls back to the abstract mockup otherwise. */
+  image?: string;
   github: string;
   demo: string;
   caseStudy?: string;

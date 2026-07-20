@@ -51,7 +51,13 @@ export function Projects() {
                 </span>
               )}
 
-              <ProjectVisual tone={project.tone} large={project.featured} />
+              <ProjectVisual
+                tone={project.tone}
+                large={project.featured}
+                preview={project.preview}
+                image={project.image}
+                alt={`${project.title} preview`}
+              />
 
               <div
                 className={cn(
